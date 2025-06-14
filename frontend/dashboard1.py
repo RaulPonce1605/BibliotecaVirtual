@@ -100,8 +100,3 @@ class DashboardWindow(QMainWindow):
             self.showMaximized()
             self._maximized = True
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = DashboardWindow()
-    window.show()
-    sys.exit(app.exec())
