@@ -13,41 +13,48 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(480, 620)
-        Dialog.setStyleSheet("\n"
-"background-color: rgb(54, 54, 54);")
-        self.label = QtWidgets.QLabel(parent=Dialog)
-        self.label.setGeometry(QtCore.QRect(120, 10, 281, 91))
-        self.label.setStyleSheet("color: rgb(217, 217, 217); font-size: 28pt;\n"
-"")
-        self.label.setObjectName("label")
+        Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_2 = QtWidgets.QLabel(parent=Dialog)
-        self.label_2.setGeometry(QtCore.QRect(40, 170, 49, 16))
-        self.label_2.setStyleSheet("color: rgb(218, 218, 218); font-size:15pt;\n"
+        self.label_2.setGeometry(QtCore.QRect(70, 240, 49, 16))
+        self.label_2.setStyleSheet("QLabel{\n"
+"color: rgb(218, 218, 218); font-size:15pt;\n"
+"color: #8B4513;\n"
+"}\n"
 "")
         self.label_2.setObjectName("label_2")
         self.lineEdit = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit.setGeometry(QtCore.QRect(150, 160, 241, 41))
+        self.lineEdit.setGeometry(QtCore.QRect(160, 230, 241, 41))
         self.lineEdit.setStyleSheet("font-size:14pt; \n"
 "color: rgb(202, 202, 202); ")
+        self.lineEdit.setText("")
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit_2 = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_2.setGeometry(QtCore.QRect(150, 240, 241, 41))
+        self.lineEdit_2.setGeometry(QtCore.QRect(160, 310, 241, 41))
         self.lineEdit_2.setStyleSheet("font-size:14pt; \n"
 "color: rgb(202, 202, 202); ")
         self.lineEdit_2.setText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_2.setEchoMode(QtWidgets.QLineEdit.EchoMode.Password)
+        self.lineEdit_2.setObjectName("lineEdit_2")
         self.label_3 = QtWidgets.QLabel(parent=Dialog)
-        self.label_3.setGeometry(QtCore.QRect(40, 240, 91, 31))
-        self.label_3.setStyleSheet("color: rgb(218, 218, 218); font-size:15pt;\n"
+        self.label_3.setGeometry(QtCore.QRect(30, 310, 101, 31))
+        self.label_3.setStyleSheet("QLabel{\n"
+"color: rgb(218, 218, 218); font-size:15pt;\n"
+"color: #8B4513;\n"
+"}\n"
 "")
         self.label_3.setObjectName("label_3")
         self.pushButton = QtWidgets.QPushButton(parent=Dialog)
-        self.pushButton.setGeometry(QtCore.QRect(200, 320, 121, 24))
+        self.pushButton.setGeometry(QtCore.QRect(210, 390, 121, 24))
         self.pushButton.setStyleSheet("background-color: rgb(181, 181, 181);\n"
 "font: 700 11pt \"Segoe UI\";\n"
-"color: rgb(85, 255, 255)")
+"color: #8B4513;")
         self.pushButton.setObjectName("pushButton")
+        self.label = QtWidgets.QLabel(parent=Dialog)
+        self.label.setGeometry(QtCore.QRect(70, 20, 361, 191))
+        self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("Icons/Logo.svg"))
+        self.label.setScaledContents(True)
+        self.label.setObjectName("label")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -55,17 +62,6 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.label.setText(_translate("Dialog", "Biblioteca Virtual"))
         self.label_2.setText(_translate("Dialog", "Email "))
-        self.label_3.setText(_translate("Dialog", "Password"))
-        self.pushButton.setText(_translate("Dialog", "Sign In"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
-    sys.exit(app.exec())
+        self.label_3.setText(_translate("Dialog", "Contraseña"))
+        self.pushButton.setText(_translate("Dialog", "Entrar"))

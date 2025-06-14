@@ -14,26 +14,8 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-background-color: rgb(54, 54, 54);</string>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>180</x>
-     <y>100</y>
-     <width>281</width>
-     <height>91</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(217, 217, 217); font-size: 20pt;
-</string>
-   </property>
-   <property name="text">
-    <string>Biblioteca Virtual</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -44,7 +26,10 @@ background-color: rgb(54, 54, 54);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(218, 218, 218); font-size:15pt;
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
 </string>
    </property>
    <property name="text">
@@ -64,6 +49,9 @@ background-color: rgb(54, 54, 54);</string>
     <string notr="true">font-size:14pt; 
 color: rgb(202, 202, 202); </string>
    </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_2">
    <property name="geometry">
@@ -81,28 +69,34 @@ color: rgb(202, 202, 202); </string>
    <property name="text">
     <string/>
    </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>310</y>
-     <width>91</width>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(218, 218, 218); font-size:15pt;
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
 </string>
    </property>
    <property name="text">
-    <string>Password</string>
+    <string>Contraseña</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>210</x>
      <y>390</y>
      <width>121</width>
      <height>24</height>
@@ -111,26 +105,26 @@ color: rgb(202, 202, 202); </string>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(181, 181, 181);
 font: 700 11pt &quot;Segoe UI&quot;;
-color: rgb(85, 255, 255)</string>
+color: #8B4513;</string>
    </property>
    <property name="text">
-    <string>Sign In</string>
+    <string>Entrar</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>50</y>
-     <width>131</width>
-     <height>111</height>
+     <x>70</x>
+     <y>20</y>
+     <width>361</width>
+     <height>191</height>
     </rect>
    </property>
    <property name="text">
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../../../OneDrive/Desktop/Pictures/Screenshots/Captura de pantalla 2025-06-04 122020.png</pixmap>
+    <pixmap>Icons/Logo.svg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
