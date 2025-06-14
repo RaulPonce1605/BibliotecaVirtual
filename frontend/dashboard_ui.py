@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.frame_superior.setMaximumSize(QtCore.QSize(16777215, 40))
         self.frame_superior.setStyleSheet("\n"
 "QFrame{\n"
-"background-color:#8c8c8c;\n"
+"background-color:#e8ecef;\n"
 "}\n"
 "\n"
 "QPushButton{\n"
@@ -111,19 +111,21 @@ class Ui_MainWindow(object):
         self.frame_2 = QtWidgets.QFrame(parent=self.frame_3)
         self.frame_2.setMaximumSize(QtCore.QSize(300, 16777215))
         self.frame_2.setStyleSheet("QFrame {\n"
-"    background-color: #9a9a9a;\n"
+"    background-color: #f0f4f8; /* Fondo principal claro */\n"
 "}\n"
 "\n"
 "QPushButton {\n"
 "    font: 87 12pt \"Arial Black\";\n"
-"    background-color: #000000ff;\n"
-"    color: rgb(20, 200, 220);\n"
+"    background-color: #2c3e50; /* Azul oscuro neutro */\n"
+"    color: white;\n"
 "    border-radius: 5px;\n"
-"    border: 1px solid white;\n"
+"    border: 1px solid #3498db; /* Acento azul moderno */\n"
+"    padding: 6px 12px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: rgb(53,53,79);\n"
+"    background-color: #3498db; /* Azul más claro al hacer hover */\n"
+"    color: white;\n"
 "}\n"
 "")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
@@ -133,8 +135,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.bt_uno = QtWidgets.QPushButton(parent=self.frame_2)
         self.bt_uno.setAutoFillBackground(False)
-        self.bt_uno.setStyleSheet("\n"
-"")
+        self.bt_uno.setStyleSheet("")
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap("Icons/user-plus.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.bt_uno.setIcon(icon4)
@@ -168,19 +169,21 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.frame_2)
         self.frame_4 = QtWidgets.QFrame(parent=self.frame_3)
         self.frame_4.setStyleSheet("QFrame {\n"
-"    background-color: #9a9a9a;\n"
+"    background-color: #e8ecef; /* Fondo gris claro suave */\n"
 "}\n"
 "\n"
 "QPushButton {\n"
 "    font: 87 12pt \"Arial Black\";\n"
-"    background-color: #000000ff;\n"
-"    color: rgb(20, 200, 220);\n"
-"    border-radius: 5px;\n"
-"    border: 1px solid white;\n"
+"    background-color: #2c2c2c;  /* Gris oscuro en lugar de negro puro */\n"
+"    color: #14c8dc;             /* Mantiene tu azul turquesa */\n"
+"    border-radius: 6px;\n"
+"    border: 1px solid #14c8dc;\n"
+"    padding: 6px 12px;\n"
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: black;\n"
+"    background-color: #444;    /* Gris más claro al hacer hover */\n"
+"    color: white;              /* Mejor contraste en hover */\n"
 "}\n"
 "")
         self.frame_4.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
@@ -190,7 +193,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.frame_6 = QtWidgets.QFrame(parent=self.frame_4)
         self.frame_6.setStyleSheet("QFrame {\n"
-"    background-color: #9a9a9a;\n"
+"    background-color: #e8ecef;\n"
 "}\n"
 "\n"
 "QPushButton {\n"
@@ -264,6 +267,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.addWidget(self.pushButton_11)
         self.verticalLayout_3.addWidget(self.frame_6)
         self.frame_7 = QtWidgets.QFrame(parent=self.frame_4)
+        self.frame_7.setStyleSheet("QLabel {\n"
+"    background-color: transparent;\n"
+"}")
         self.frame_7.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_7.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_7.setObjectName("frame_7")
@@ -285,32 +291,36 @@ class Ui_MainWindow(object):
 "")
         self.toolBox.setObjectName("toolBox")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 274, 364))
+        self.page.setGeometry(QtCore.QRect(0, 0, 346, 352))
         self.page.setObjectName("page")
         self.verticalLayout_11 = QtWidgets.QVBoxLayout(self.page)
         self.verticalLayout_11.setObjectName("verticalLayout_11")
-        self.pushButton = QtWidgets.QPushButton(parent=self.page)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_11.addWidget(self.pushButton)
+        self.label_6 = QtWidgets.QLabel(parent=self.page)
+        self.label_6.setText("")
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout_11.addWidget(self.label_6)
         icon11 = QtGui.QIcon()
         icon11.addPixmap(QtGui.QPixmap("Icons/app-window.svg"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
         self.toolBox.addItem(self.page, icon11, "")
         self.page_5 = QtWidgets.QWidget()
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 346, 352))
         self.page_5.setObjectName("page_5")
         self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.page_5)
         self.verticalLayout_12.setObjectName("verticalLayout_12")
-        self.pushButton_2 = QtWidgets.QPushButton(parent=self.page_5)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_12.addWidget(self.pushButton_2)
+        self.label_7 = QtWidgets.QLabel(parent=self.page_5)
+        self.label_7.setText("")
+        self.label_7.setObjectName("label_7")
+        self.verticalLayout_12.addWidget(self.label_7)
         self.toolBox.addItem(self.page_5, icon11, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 274, 364))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 346, 352))
         self.page_2.setObjectName("page_2")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.page_2)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.pushButton_3 = QtWidgets.QPushButton(parent=self.page_2)
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.verticalLayout_13.addWidget(self.pushButton_3)
+        self.label_8 = QtWidgets.QLabel(parent=self.page_2)
+        self.label_8.setText("")
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout_13.addWidget(self.label_8)
         self.toolBox.addItem(self.page_2, icon11, "")
         self.verticalLayout_6.addWidget(self.toolBox)
         self.verticalLayout_3.addWidget(self.frame_7)
@@ -318,7 +328,7 @@ class Ui_MainWindow(object):
         self.frame_paginas = QtWidgets.QFrame(parent=self.frame_3)
         self.frame_paginas.setStyleSheet("\n"
 "QFrame{\n"
-"background-color:#9a9a9a;\n"
+"background-color:#e8ecef;\n"
 "}\n"
 "\n"
 "QLabel{\n"
@@ -404,9 +414,6 @@ class Ui_MainWindow(object):
         self.bt_dos.setText(_translate("MainWindow", "  Registrar Material"))
         self.bt_tres.setText(_translate("MainWindow", "Prestamos/Devoluciones"))
         self.bt_cuatro.setText(_translate("MainWindow", "  Reportes"))
-        self.pushButton.setText(_translate("MainWindow", "PushButton"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "pagina uno"))
-        self.pushButton_2.setText(_translate("MainWindow", "PushButton"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_5), _translate("MainWindow", "pagina dos"))
-        self.pushButton_3.setText(_translate("MainWindow", "PushButton"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "pagina tres"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "Resumen de Ventas"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_5), _translate("MainWindow", "Libros"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "Comentarios"))
