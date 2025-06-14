@@ -560,7 +560,7 @@ QToolBox::tab:selected {
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page">
                    <property name="geometry">
@@ -580,7 +580,7 @@ QToolBox::tab:selected {
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_11">
                     <item>
-                     <widget class="QLabel" name="label_6">
+                     <widget class="QLabel" name="label_ventas">
                       <property name="text">
                        <string/>
                       </property>
@@ -606,7 +606,7 @@ QToolBox::tab:selected {
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <item>
-                     <widget class="QLabel" name="label_7">
+                     <widget class="QLabel" name="label_libros">
                       <property name="text">
                        <string/>
                       </property>
@@ -632,7 +632,7 @@ QToolBox::tab:selected {
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_13">
                     <item>
-                     <widget class="QLabel" name="label_8">
+                     <widget class="QLabel" name="label_comentarios">
                       <property name="text">
                        <string/>
                       </property>
