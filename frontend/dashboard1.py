@@ -42,7 +42,7 @@ class DashboardWindow(QMainWindow):
 
     def setup_connections(self):
         # Botones de navegación
-        self.ui.bt_uno.clicked.connect(lambda: self.cambiar_pagina(0))
+        self.ui.bt_uno.clicked.connect(self.abrir_registro_usuario)
         self.ui.bt_dos.clicked.connect(lambda: self.cambiar_pagina(1))
         self.ui.bt_tres.clicked.connect(lambda: self.cambiar_pagina(2))
         self.ui.bt_cuatro.clicked.connect(lambda: self.cambiar_pagina(3))
@@ -100,3 +100,8 @@ class DashboardWindow(QMainWindow):
             self.showMaximized()
             self._maximized = True
 
+    def abrir_registro_usuario(self):
+        from registro_usuario import RegistroApp
+        self.registro_window = RegistroApp(dashboard_window=self)
+        self.hide()
+        self.registro_window.show()
