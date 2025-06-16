@@ -44,7 +44,7 @@ class DashboardWindow(QMainWindow):
         # Botones de navegación
         self.ui.bt_uno.clicked.connect(self.abrir_registro_usuario)
         self.ui.bt_dos.clicked.connect(self.abrir_registro_material)
-        self.ui.bt_tres.clicked.connect(lambda: self.cambiar_pagina(2))
+        self.ui.bt_tres.clicked.connect(self.abrir_registro_prestamos)
         self.ui.bt_cuatro.clicked.connect(lambda: self.cambiar_pagina(3))
 
         # Menú lateral
@@ -109,5 +109,11 @@ class DashboardWindow(QMainWindow):
     def abrir_registro_material(self):
         from registro_material import RegistroMaterialApp
         self.registro_window = RegistroMaterialApp(dashboard_window=self)
+        self.hide()
+        self.registro_window.show()
+
+    def abrir_registro_prestamos(self):
+        from registro_prestamosdev import RegistroPrestamosDevApp
+        self.registro_window = RegistroPrestamosDevApp(dashboard_window=self)
         self.hide()
         self.registro_window.show()
