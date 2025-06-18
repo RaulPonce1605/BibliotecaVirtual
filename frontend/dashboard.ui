@@ -577,7 +577,7 @@ QToolBox::tab:selected {
 </string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>2</number>
                   </property>
                   <widget class="QWidget" name="page">
                    <property name="geometry">
@@ -593,7 +593,7 @@ QToolBox::tab:selected {
                      <normaloff>Icons/app-window.svg</normaloff>Icons/app-window.svg</iconset>
                    </attribute>
                    <attribute name="label">
-                    <string>Resumen de Ventas</string>
+                    <string>Alumnos Activos</string>
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_11">
                     <item>
@@ -619,7 +619,7 @@ QToolBox::tab:selected {
                      <normaloff>Icons/app-window.svg</normaloff>Icons/app-window.svg</iconset>
                    </attribute>
                    <attribute name="label">
-                    <string>Libros</string>
+                    <string>Materias</string>
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <item>
@@ -645,7 +645,7 @@ QToolBox::tab:selected {
                      <normaloff>Icons/app-window.svg</normaloff>Icons/app-window.svg</iconset>
                    </attribute>
                    <attribute name="label">
-                    <string>Comentarios</string>
+                    <string>Maestros Activos</string>
                    </attribute>
                    <layout class="QVBoxLayout" name="verticalLayout_13">
                     <item>

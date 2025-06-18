@@ -408,7 +408,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.toolBox.setCurrentIndex(0)
+        self.toolBox.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -420,6 +420,6 @@ class Ui_MainWindow(object):
         self.bt_dos.setText(_translate("MainWindow", "  Registrar Materia"))
         self.bt_tres.setText(_translate("MainWindow", "Calificaciones"))
         self.bt_cuatro.setText(_translate("MainWindow", "Boletas"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "Resumen de Ventas"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_5), _translate("MainWindow", "Libros"))
-        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "Comentarios"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "Alumnos Activos"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_5), _translate("MainWindow", "Materias"))
+        self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "Maestros Activos"))

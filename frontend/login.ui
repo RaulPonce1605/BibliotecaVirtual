@@ -124,7 +124,7 @@ color: #8B4513;</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Icons/Logo.svg</pixmap>
+    <pixmap>Icons/Logo2.svg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

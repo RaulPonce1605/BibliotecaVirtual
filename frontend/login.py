@@ -52,7 +52,7 @@ class Ui_Dialog(object):
         self.label = QtWidgets.QLabel(parent=Dialog)
         self.label.setGeometry(QtCore.QRect(70, 20, 361, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Icons/Logo.svg"))
+        self.label.setPixmap(QtGui.QPixmap("Icons/Logo2.svg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
 

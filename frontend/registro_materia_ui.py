@@ -13,6 +13,7 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(881, 651)
+        Dialog.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_10 = QtWidgets.QLabel(parent=Dialog)
         self.label_10.setGeometry(QtCore.QRect(50, 200, 181, 16))
         self.label_10.setStyleSheet("QLabel{\n"
