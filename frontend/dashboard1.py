@@ -49,7 +49,7 @@ class DashboardWindow(QMainWindow):
         self.ui.bt_uno.clicked.connect(lambda: self.abrir_registro_usuario())
         self.ui.bt_dos.clicked.connect(lambda: self.abrir_registro_materia())
         self.ui.bt_tres.clicked.connect(lambda: self.abrir_calificaciones())
-        self.ui.bt_cuatro.clicked.connect(lambda: self.cambiar_pagina(3))
+        self.ui.bt_cuatro.clicked.connect(lambda: self.boletas())  # Página boletas
         self.ui.pushButton.clicked.connect(lambda: self.abrir_registro_profesor())  # Página boletas
 
         # Menú lateral animado
@@ -115,6 +115,12 @@ class DashboardWindow(QMainWindow):
         self.registro_window = RegistroApp(dashboard_window=self)
         self.hide()
         self.registro_window.show()
+
+    def boletas(self):
+        from boletas import BoletaApp
+        self.boleto_window = BoletaApp(dashboard_window=self)
+        self.hide()
+        self.boleto_window.show()
 
 
 if __name__ == "__main__":
