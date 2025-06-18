@@ -22,34 +22,13 @@ class Ui_Dialog(object):
 "")
         self.label_10.setObjectName("label_10")
         self.label_3 = QtWidgets.QLabel(parent=Dialog)
-        self.label_3.setGeometry(QtCore.QRect(40, 250, 141, 16))
+        self.label_3.setGeometry(QtCore.QRect(40, 250, 181, 31))
         self.label_3.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
 "}\n"
 "")
         self.label_3.setObjectName("label_3")
-        self.label_6 = QtWidgets.QLabel(parent=Dialog)
-        self.label_6.setGeometry(QtCore.QRect(650, 250, 141, 16))
-        self.label_6.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_6.setObjectName("label_6")
-        self.comboBox_Genero = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_Genero.setGeometry(QtCore.QRect(10, 300, 211, 21))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.comboBox_Genero.setFont(font)
-        self.comboBox_Genero.setObjectName("comboBox_Genero")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
-        self.comboBox_Genero.addItem("")
         self.frame = QtWidgets.QFrame(parent=Dialog)
         self.frame.setGeometry(QtCore.QRect(0, 220, 881, 2))
         self.frame.setMaximumSize(QtCore.QSize(16777215, 2))
@@ -57,16 +36,10 @@ class Ui_Dialog(object):
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
-        self.lineEdit_Titulo = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_Titulo.setGeometry(QtCore.QRect(300, 300, 241, 31))
-        self.lineEdit_Titulo.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_Titulo.setText("")
-        self.lineEdit_Titulo.setObjectName("lineEdit_Titulo")
         self.label = QtWidgets.QLabel(parent=Dialog)
-        self.label.setGeometry(QtCore.QRect(10, 40, 341, 151))
+        self.label.setGeometry(QtCore.QRect(10, 40, 321, 151))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Icons/Logo.svg"))
+        self.label.setPixmap(QtGui.QPixmap("Icons/Logo2.svg"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(parent=Dialog)
@@ -77,12 +50,6 @@ class Ui_Dialog(object):
 "}\n"
 "")
         self.label_2.setObjectName("label_2")
-        self.lineEdit_Autor = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_Autor.setGeometry(QtCore.QRect(600, 300, 241, 31))
-        self.lineEdit_Autor.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_Autor.setText("")
-        self.lineEdit_Autor.setObjectName("lineEdit_Autor")
         self.frame_superior = QtWidgets.QFrame(parent=Dialog)
         self.frame_superior.setGeometry(QtCore.QRect(0, 0, 881, 42))
         self.frame_superior.setMinimumSize(QtCore.QSize(0, 42))
@@ -156,21 +123,15 @@ class Ui_Dialog(object):
         self.bt_cerrar_2.setObjectName("bt_cerrar_2")
         self.horizontalLayout.addWidget(self.bt_cerrar_2)
         self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(380, 250, 141, 16))
+        self.label_4.setGeometry(QtCore.QRect(340, 260, 171, 16))
         self.label_4.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
 "}\n"
 "")
         self.label_4.setObjectName("label_4")
-        self.lineEdit_Id = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_Id.setGeometry(QtCore.QRect(590, 430, 241, 31))
-        self.lineEdit_Id.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_Id.setText("")
-        self.lineEdit_Id.setObjectName("lineEdit_Id")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(370, 380, 141, 16))
+        self.label_5.setGeometry(QtCore.QRect(650, 260, 171, 16))
         self.label_5.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -188,12 +149,6 @@ class Ui_Dialog(object):
         self.comboBox_Material.addItem("")
         self.comboBox_Material.addItem("")
         self.comboBox_Material.addItem("")
-        self.lineEdit_anio = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_anio.setGeometry(QtCore.QRect(290, 430, 241, 31))
-        self.lineEdit_anio.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_anio.setText("")
-        self.lineEdit_anio.setObjectName("lineEdit_anio")
         self.label_7 = QtWidgets.QLabel(parent=Dialog)
         self.label_7.setGeometry(QtCore.QRect(640, 380, 141, 16))
         self.label_7.setStyleSheet("QLabel{\n"
@@ -203,7 +158,7 @@ class Ui_Dialog(object):
 "")
         self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(parent=Dialog)
-        self.label_8.setGeometry(QtCore.QRect(30, 380, 141, 16))
+        self.label_8.setGeometry(QtCore.QRect(30, 380, 151, 16))
         self.label_8.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -216,6 +171,21 @@ class Ui_Dialog(object):
 "font: 700 15pt \"Segoe UI\";\n"
 "color: #8B4513;")
         self.pushButton_registrar_Libros.setObjectName("pushButton_registrar_Libros")
+        self.comboBox_area = QtWidgets.QComboBox(parent=Dialog)
+        self.comboBox_area.setGeometry(QtCore.QRect(647, 430, 171, 22))
+        self.comboBox_area.setObjectName("comboBox_area")
+        self.lineEdit_Titulo_Materia = QtWidgets.QLineEdit(parent=Dialog)
+        self.lineEdit_Titulo_Materia.setGeometry(QtCore.QRect(20, 300, 241, 31))
+        self.lineEdit_Titulo_Materia.setStyleSheet("font-size:14pt; \n"
+"color: rgb(202, 202, 202); ")
+        self.lineEdit_Titulo_Materia.setText("")
+        self.lineEdit_Titulo_Materia.setObjectName("lineEdit_Titulo_Materia")
+        self.comboBox_materia_2 = QtWidgets.QComboBox(parent=Dialog)
+        self.comboBox_materia_2.setGeometry(QtCore.QRect(330, 310, 181, 22))
+        self.comboBox_materia_2.setObjectName("comboBox_materia_2")
+        self.comboBox_Profesor = QtWidgets.QComboBox(parent=Dialog)
+        self.comboBox_Profesor.setGeometry(QtCore.QRect(640, 310, 181, 22))
+        self.comboBox_Profesor.setObjectName("comboBox_Profesor")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -224,24 +194,16 @@ class Ui_Dialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label_10.setText(_translate("Dialog", "Rellena los siguientes campos"))
-        self.label_3.setText(_translate("Dialog", "Genero de Libros"))
-        self.label_6.setText(_translate("Dialog", "Autor"))
-        self.comboBox_Genero.setItemText(0, _translate("Dialog", "--- Seleccione una opción"))
-        self.comboBox_Genero.setItemText(1, _translate("Dialog", "Informativo"))
-        self.comboBox_Genero.setItemText(2, _translate("Dialog", "Biografia"))
-        self.comboBox_Genero.setItemText(3, _translate("Dialog", "Ficción"))
-        self.comboBox_Genero.setItemText(4, _translate("Dialog", "Novela"))
-        self.comboBox_Genero.setItemText(5, _translate("Dialog", "Suspenso"))
-        self.comboBox_Genero.setItemText(6, _translate("Dialog", "Terror"))
-        self.label_2.setText(_translate("Dialog", "Registro De Material"))
-        self.label_9.setText(_translate("Dialog", "Registro de Usuario"))
-        self.label_4.setText(_translate("Dialog", "Titulo"))
-        self.label_5.setText(_translate("Dialog", "Año"))
+        self.label_3.setText(_translate("Dialog", "Nombre De Materia"))
+        self.label_2.setText(_translate("Dialog", "Registro De Materias"))
+        self.label_9.setText(_translate("Dialog", "Registro de Materia"))
+        self.label_4.setText(_translate("Dialog", "Clave de la materia"))
+        self.label_5.setText(_translate("Dialog", "Profesor a Impartir"))
         self.comboBox_Material.setItemText(0, _translate("Dialog", "--- Seleccione una opción"))
-        self.comboBox_Material.setItemText(1, _translate("Dialog", "Revista"))
-        self.comboBox_Material.setItemText(2, _translate("Dialog", "Libro"))
-        self.comboBox_Material.setItemText(3, _translate("Dialog", "Tesis"))
-        self.comboBox_Material.setItemText(4, _translate("Dialog", "Articulo"))
-        self.label_7.setText(_translate("Dialog", "ID"))
+        self.comboBox_Material.setItemText(1, _translate("Dialog", "Libros"))
+        self.comboBox_Material.setItemText(2, _translate("Dialog", "Libretas"))
+        self.comboBox_Material.setItemText(3, _translate("Dialog", "Utiles Basicos"))
+        self.comboBox_Material.setItemText(4, _translate("Dialog", "Atencion Especial"))
+        self.label_7.setText(_translate("Dialog", "Area Academica"))
         self.label_8.setText(_translate("Dialog", "Tipo de material"))
         self.pushButton_registrar_Libros.setText(_translate("Dialog", "Registrar"))

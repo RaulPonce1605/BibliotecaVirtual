@@ -6,51 +6,53 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
-    <height>651</height>
+    <width>886</width>
+    <height>610</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label_10">
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>200</y>
-     <width>181</width>
-     <height>16</height>
+     <x>10</x>
+     <y>40</y>
+     <width>321</width>
+     <height>151</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:10pt;
-color: #9d9d9d;
-}
-</string>
-   </property>
    <property name="text">
-    <string>Rellena los siguientes campos</string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Icons/Logo2.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>250</y>
-     <width>181</width>
-     <height>31</height>
+     <x>440</x>
+     <y>120</y>
+     <width>341</width>
+     <height>51</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
+color: rgb(218, 218, 218); font-size:25pt;
+color: #8B4513
 }
 </string>
    </property>
    <property name="text">
-    <string>Nombre De Materia</string>
+    <string>Registro De Profesores</string>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
@@ -78,43 +80,210 @@ color: #8B4513;
     <enum>QFrame::Raised</enum>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLineEdit" name="lineEdit_nombre">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>321</width>
-     <height>151</height>
+     <x>300</x>
+     <y>300</y>
+     <width>241</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; 
+color: rgb(202, 202, 202); </string>
    </property>
    <property name="text">
     <string/>
    </property>
-   <property name="pixmap">
-    <pixmap>Icons/Logo2.svg</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>440</x>
-     <y>120</y>
-     <width>321</width>
-     <height>51</height>
+     <x>390</x>
+     <y>390</y>
+     <width>191</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:25pt;
-color: #8B4513
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
 }
 </string>
    </property>
    <property name="text">
-    <string>Registro De Materias</string>
+    <string>Teléfono</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>200</y>
+     <width>181</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:10pt;
+color: #9d9d9d;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Rellena los siguientes campos</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>390</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Email</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_registrar">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>520</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(181, 181, 181);
+font: 700 15pt &quot;Segoe UI&quot;;
+color: #8B4513;</string>
+   </property>
+   <property name="text">
+    <string>Registrar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>250</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Materia A Impartir</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>250</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Nombre</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_segundo_Apellido">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>440</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; 
+color: rgb(202, 202, 202); </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>650</x>
+     <y>250</y>
+     <width>141</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Primer Apellido</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Email">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>440</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; 
+color: rgb(202, 202, 202); </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_Telefono">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>440</y>
+     <width>241</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font-size:14pt; 
+color: rgb(202, 202, 202); </string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
   <widget class="QFrame" name="frame_superior">
@@ -183,7 +352,7 @@ border-radius:20px;
        <string notr="true">font: 900 10pt &quot;Arial Black&quot;;</string>
       </property>
       <property name="text">
-       <string>Registro de Materia</string>
+       <string>Registro de Usuario</string>
       </property>
      </widget>
     </item>
@@ -306,158 +475,10 @@ border-radius:20px;
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_4">
+  <widget class="QLineEdit" name="lineEdit_apellido">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>260</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Clave de la materia</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>650</x>
-     <y>260</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Profesor a Impartir</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_Material">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>430</y>
-     <width>211</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <item>
-    <property name="text">
-     <string>--- Seleccione una opción</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Libros</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Libretas</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Utiles Basicos</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Atencion Especial</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>640</x>
-     <y>380</y>
-     <width>141</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Area Academica</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>380</y>
-     <width>151</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Tipo de material</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_registrar_Libros">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>530</y>
-     <width>191</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(181, 181, 181);
-font: 700 15pt &quot;Segoe UI&quot;;
-color: #8B4513;</string>
-   </property>
-   <property name="text">
-    <string>Registrar</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_area">
-   <property name="geometry">
-    <rect>
-     <x>647</x>
-     <y>430</y>
-     <width>171</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_Titulo_Materia">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
+     <x>600</x>
      <y>300</y>
      <width>241</width>
      <height>31</height>
@@ -471,22 +492,32 @@ color: rgb(202, 202, 202); </string>
     <string/>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_materia_2">
+  <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>310</y>
-     <width>181</width>
-     <height>22</height>
+     <x>50</x>
+     <y>390</y>
+     <width>161</width>
+     <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+color: rgb(218, 218, 218); font-size:15pt;
+color: #8B4513;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Segundo apellido</string>
+   </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_Profesor">
+  <widget class="QComboBox" name="comboBox_materia">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>310</y>
-     <width>181</width>
+     <x>40</x>
+     <y>290</y>
+     <width>151</width>
      <height>22</height>
     </rect>
    </property>

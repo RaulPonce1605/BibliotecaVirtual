@@ -21,7 +21,7 @@
     <rect>
      <x>10</x>
      <y>40</y>
-     <width>341</width>
+     <width>321</width>
      <height>151</height>
     </rect>
    </property>
@@ -29,7 +29,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Icons/Logo.svg</pixmap>
+    <pixmap>Icons/Logo2.svg</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -52,7 +52,7 @@ color: #8B4513
 </string>
    </property>
    <property name="text">
-    <string>Registro De Usuarios</string>
+    <string>Registro De Alumnos</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -72,10 +72,10 @@ color: #8B4513;
 </string>
    </property>
    <property name="text">
-    <string>Tipo de cliente</string>
+    <string>Tipo de Alumno</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_cliente">
+  <widget class="QComboBox" name="comboBox_alumno">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -96,17 +96,17 @@ color: #8B4513;
    </item>
    <item>
     <property name="text">
-     <string>Maestro</string>
+     <string>Bachilleres</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Estudiante</string>
+     <string>Subnivel Elemental</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Leector</string>
+     <string>Subnivel Medio</string>
     </property>
    </item>
   </widget>
@@ -150,9 +150,9 @@ color: rgb(202, 202, 202); </string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>700</x>
+     <x>650</x>
      <y>390</y>
-     <width>141</width>
+     <width>161</width>
      <height>16</height>
     </rect>
    </property>
@@ -164,7 +164,7 @@ color: #8B4513;
 </string>
    </property>
    <property name="text">
-    <string>Email</string>
+    <string>Email De Tutores</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_Email">
@@ -261,7 +261,7 @@ color: rgb(202, 202, 202); </string>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>390</x>
      <y>390</y>
      <width>191</width>
      <height>16</height>
@@ -275,10 +275,10 @@ color: #8B4513;
 </string>
    </property>
    <property name="text">
-    <string>Numero de Teléfono</string>
+    <string>Edad</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_Telefono">
+  <widget class="QLineEdit" name="lineEdit_Edad">
    <property name="geometry">
     <rect>
      <x>310</x>

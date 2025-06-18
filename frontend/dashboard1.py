@@ -2,6 +2,12 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect
 from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, Qt
 from PyQt6.QtGui import QColor
 from dashboard_ui import Ui_MainWindow
+
+# Importaciones de tus módulos
+from registro_usuario import RegistroApp
+from registro_materias import RegistroMateriaApp
+from registro_prestamosdev import RegistroPrestamosDevApp
+
 import sys
 
 class DashboardWindow(QMainWindow):
@@ -14,7 +20,7 @@ class DashboardWindow(QMainWindow):
         self.resize(1000, 700)
         self.setMinimumSize(800, 600)
 
-        self._maximized = False  # Estado actual de la ventana
+        self._maximized = False
 
         self.init_ui()
         self.setup_connections()
@@ -23,7 +29,7 @@ class DashboardWindow(QMainWindow):
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setWindowOpacity(0)
 
-        # Animación de aparición
+        # Animación de entrada
         self.anim = QPropertyAnimation(self, b"windowOpacity")
         self.anim.setDuration(500)
         self.anim.setStartValue(0)
@@ -31,27 +37,26 @@ class DashboardWindow(QMainWindow):
         self.anim.setEasingCurve(QEasingCurve.Type.InOutQuad)
         self.anim.start()
 
-        # Efecto sombra
+        # Sombra
         self.sombra_frame(self.ui.frame_2)
 
         # Página inicial
         self.ui.stackedWidget.setCurrentIndex(0)
-
-        # Ocultar flecha derecha al inicio
         self.ui.bt_menu_dos.hide()
 
     def setup_connections(self):
-        # Botones de navegación
-        self.ui.bt_uno.clicked.connect(self.abrir_registro_usuario)
-        self.ui.bt_dos.clicked.connect(self.abrir_registro_material)
-        self.ui.bt_tres.clicked.connect(self.abrir_registro_prestamos)
+        # Botones de navegación lateral
+        self.ui.bt_uno.clicked.connect(lambda: self.abrir_registro_usuario())
+        self.ui.bt_dos.clicked.connect(lambda: self.abrir_registro_materia())
+        self.ui.bt_tres.clicked.connect(lambda: self.abrir_calificaciones())
         self.ui.bt_cuatro.clicked.connect(lambda: self.cambiar_pagina(3))
+        self.ui.pushButton.clicked.connect(lambda: self.abrir_registro_profesor())  # Página boletas
 
-        # Menú lateral
+        # Menú lateral animado
         self.ui.bt_menu_uno.clicked.connect(self.toggle_menu)
         self.ui.bt_menu_dos.clicked.connect(self.toggle_menu)
 
-        # Botones de ventana
+        # Botones de control de ventana
         self.ui.bt_minimizar.clicked.connect(self.showMinimized)
         self.ui.bt_cerrar_2.clicked.connect(self.close)
         self.ui.bt_maximizar.clicked.connect(self.maximizar_restaurar)
@@ -67,17 +72,9 @@ class DashboardWindow(QMainWindow):
 
     def toggle_menu(self):
         width = self.ui.frame_2.width()
-        normal = 0
-        extender = 300
-
-        if width == 0:
-            final_width = extender
-            self.ui.bt_menu_uno.hide()
-            self.ui.bt_menu_dos.show()
-        else:
-            final_width = normal
-            self.ui.bt_menu_uno.show()
-            self.ui.bt_menu_dos.hide()
+        final_width = 300 if width == 0 else 0
+        self.ui.bt_menu_uno.setVisible(final_width == 0)
+        self.ui.bt_menu_dos.setVisible(final_width == 300)
 
         self.animacion = QPropertyAnimation(self.ui.frame_2, b"maximumWidth")
         self.animacion.setStartValue(width)
@@ -88,32 +85,40 @@ class DashboardWindow(QMainWindow):
 
     def cambiar_pagina(self, index):
         self.ui.stackedWidget.setCurrentIndex(index)
-        titulos = ["Registrar Usuario", "Registrar Material", 
-                   "Préstamos/Devoluciones", "Reportes"]
+        titulos = ["Registrar Usuario", "Registrar Materia", "Préstamos/Devoluciones", "Reportes"]
         self.ui.label.setText(titulos[index])
 
     def maximizar_restaurar(self):
         if self._maximized:
             self.showNormal()
-            self._maximized = False
         else:
             self.showMaximized()
-            self._maximized = True
+        self._maximized = not self._maximized
 
     def abrir_registro_usuario(self):
-        from registro_usuario import RegistroApp
         self.registro_window = RegistroApp(dashboard_window=self)
         self.hide()
         self.registro_window.show()
 
-    def abrir_registro_material(self):
-        from registro_material import RegistroMaterialApp
-        self.registro_window = RegistroMaterialApp(dashboard_window=self)
+    def abrir_registro_materia(self):
+        self.registro_window = RegistroMateriaApp(dashboard_window=self)
         self.hide()
         self.registro_window.show()
 
-    def abrir_registro_prestamos(self):
-        from registro_prestamosdev import RegistroPrestamosDevApp
+    def abrir_calificaciones(self):
         self.registro_window = RegistroPrestamosDevApp(dashboard_window=self)
         self.hide()
         self.registro_window.show()
+
+    def abrir_registro_profesor(self):
+        from registro_profesor import RegistroApp
+        self.registro_window = RegistroApp(dashboard_window=self)
+        self.hide()
+        self.registro_window.show()
+
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    ventana = DashboardWindow()
+    ventana.show()
+    sys.exit(app.exec())

@@ -300,6 +300,23 @@ QPushButton:hover {
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
+              <widget class="QPushButton" name="pushButton">
+               <property name="text">
+                <string>  Registrar Maestro</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>Icons/user-plus.svg</normaloff>Icons/user-plus.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>32</width>
+                 <height>32</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="bt_uno">
                <property name="autoFillBackground">
                 <bool>false</bool>
@@ -308,7 +325,7 @@ QPushButton:hover {
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>   Registrar Usuario</string>
+                <string>   Registrar Alumno</string>
                </property>
                <property name="icon">
                 <iconset>
@@ -328,7 +345,7 @@ QPushButton:hover {
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>  Registrar Material</string>
+                <string>  Registrar Materia</string>
                </property>
                <property name="icon">
                 <iconset>
@@ -348,11 +365,11 @@ QPushButton:hover {
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>Prestamos/Devoluciones</string>
+                <string>Calificaciones</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>Icons/dollar-sign.svg</normaloff>Icons/dollar-sign.svg</iconset>
+                 <normaloff>Icons/user.svg</normaloff>Icons/user.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -368,7 +385,7 @@ QPushButton:hover {
                 <string notr="true"/>
                </property>
                <property name="text">
-                <string>  Reportes</string>
+                <string>Boletas</string>
                </property>
                <property name="icon">
                 <iconset>
