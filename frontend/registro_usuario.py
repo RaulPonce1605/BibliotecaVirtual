@@ -39,14 +39,22 @@ class RegistroApp(QtWidgets.QDialog):
         email = self.ui.lineEdit_Email.text()
         materia = self.ui.lineEdit_materia.text()
 
-        print("✅ Alumno registrado:")
-        print(f"Tipo: {tipo_alumno}")
-        print(f"Nombre: {nombre}")
-        print(f"Apellido Paterno: {primer_apellido}")
-        print(f"Apellido Materno: {segundo_apellido}")
-        print(f"Edad: {edad}")
-        print(f"Email del tutor: {email}")
-        print(f"Materia inscrita: {materia}")
+        datos = {
+            "tipo_alumno": tipo_alumno,
+            "nombre": nombre,
+            "primer_apellido": primer_apellido,
+            "segundo_apellido": segundo_apellido,
+            "edad": edad,
+            "email_tutor": email,
+            "materia": materia
+        }
+
+        respuesta = registrar_alumno(datos)
+
+        if respuesta and respuesta.get("status") == "ok":
+            QtWidgets.QMessageBox.information(self, "Éxito", "Alumno registrado correctamente.")
+        else:
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar el alumno.")
 
         # Animación visual del botón
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar, b"geometry")

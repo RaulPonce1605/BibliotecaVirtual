@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_materia_ui import Ui_Dialog
+from servpeticiones import registrar_materia  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroMateriaApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -36,12 +37,20 @@ class RegistroMateriaApp(QtWidgets.QDialog):
         tipo_material = self.ui.comboBox_Material.currentText()
         area = self.ui.comboBox_area.currentText()
 
-        print("📚 Registro de Materia:")
-        print(f"  Nombre: {nombre_materia}")
-        print(f"  Profesor: {profesor}")
-        print(f"  Tipo de material: {tipo_material}")
-        print(f"  Área académica: {area}")
+        datos = {
+            "nombre_materia": nombre_materia,
+            "profesor": profesor,
+            "tipo_material": tipo_material,
+            "area_academica": area
+        }
 
+        respuesta = registrar_materia(datos)
+
+        if respuesta and respuesta.get("status") == "ok":
+            QtWidgets.QMessageBox.information(self, "Éxito", "Materia registrada correctamente.")
+        else:
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar la materia.")
+            
         # Animación visual del botón registrar
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar_Libros, b"geometry")
         anim.setDuration(200)

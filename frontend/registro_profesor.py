@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_profesor_ui import Ui_Dialog
+form servpeticiones import registrar_profesor  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -38,15 +39,23 @@ class RegistroApp(QtWidgets.QDialog):
         telefono = self.ui.lineEdit_Telefono.text()
         email = self.ui.lineEdit_Email.text()
 
-        print("📘 Profesor Registrado:")
-        print(f"Materia: {materia}")
-        print(f"Nombre: {nombre}")
-        print(f"Apellido Paterno: {primer_apellido}")
-        print(f"Apellido Materno: {segundo_apellido}")
-        print(f"Teléfono: {telefono}")
-        print(f"Email: {email}")
+        datos = {
+            "materia": materia,
+            "nombre": nombre,
+            "primer_apellido": primer_apellido,
+            "segundo_apellido": segundo_apellido,
+            "telefono": telefono,
+            "email": email
+        }
 
-        # Animación en el botón
+        respuesta = registrar_profesor(datos)
+
+        if respuesta and respuesta.get("status") == "ok":
+            QtWidgets.QMessageBox.information(self, "Éxito", "Profesor registrado correctamente.")
+        else:
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar el profesor.")
+
+
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar, b"geometry")
         anim.setDuration(200)
         orig_geom = self.ui.pushButton_registrar.geometry()

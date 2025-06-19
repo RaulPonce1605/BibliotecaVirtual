@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_prestamosdev_ui import Ui_Dialog
+from servpeticiones import registrar_calificacion  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroPrestamosDevApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -37,13 +38,21 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
         calificacion = self.ui.spinBox_calificacion.value()
         fecha_evaluacion = self.ui.dateEdit_Devolucion.date().toString("yyyy-MM-dd")
 
-        print("📝 Calificación registrada:")
-        print(f"Materia: {materia}")
-        print(f"ID Alumno: {id_alumno}")
-        print(f"Grado: {grado}")
-        print(f"Calificación: {calificacion}")
-        print(f"Fecha de Evaluación: {fecha_evaluacion}")
+        datos = {
+            "materia": materia,
+            "id_alumno": id_alumno,
+            "grado": grado,
+            "calificacion": calificacion,
+            "fecha_evaluacion": fecha_evaluacion
+        }
 
+        respuesta = registrar_calificacion(datos)
+
+        if respuesta and respuesta.get("status") == "ok":
+            QtWidgets.QMessageBox.information(self, "Éxito", "Calificación registrada correctamente.")
+        else:
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar la calificación.")
+            
         # Animación visual del botón
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar_Libros, b"geometry")
         anim.setDuration(200)

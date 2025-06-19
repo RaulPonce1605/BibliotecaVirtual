@@ -2,6 +2,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect
 from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, Qt
 from PyQt6.QtGui import QColor
 from dashboard_ui import Ui_MainWindow
+from servpeticiones import obtener_lista_alumnos, obtener_lista_profesores, obtener_lista_materias  
 
 # Importaciones de tus módulos
 from registro_usuario import RegistroApp
@@ -43,6 +44,8 @@ class DashboardWindow(QMainWindow):
         # Página inicial
         self.ui.stackedWidget.setCurrentIndex(0)
         self.ui.bt_menu_dos.hide()
+
+        self.actualizar_toolbox_labels()
 
     def setup_connections(self):
         # Botones de navegación lateral
@@ -121,6 +124,23 @@ class DashboardWindow(QMainWindow):
         self.boleto_window = BoletaApp(dashboard_window=self)
         self.hide()
         self.boleto_window.show()
+
+    def actualizar_toolbox_labels(self):
+        # Alumnos
+        alumnos = obtener_lista_alumnos()
+        texto_alumnos = "\n".join(alumnos) if alumnos else "No hay alumnos registrados"
+        self.ui.label_ventas.setText(texto_alumnos)
+
+        # Profesores
+        profesores = obtener_lista_profesores()
+        texto_profesores = "\n".join(profesores) if profesores else "No hay profesores registrados"
+        self.ui.label_comentarios.setText(texto_profesores)
+
+        # Materias
+        materias = obtener_lista_materias()
+        texto_materias = "\n".join(materias) if materias else "No hay materias registradas"
+        self.ui.label_libros.setText(texto_materias)
+
 
 
 if __name__ == "__main__":

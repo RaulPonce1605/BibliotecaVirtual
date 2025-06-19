@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from boletas_ui import Ui_Dialog
+from servpeticiones import obtener_boleta  # Asegúrate de tener este método
 
 class BoletaApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -17,9 +18,6 @@ class BoletaApp(QtWidgets.QDialog):
 
         self.maximizado = False
 
-        # Carga de datos simulada
-        self.cargar_tabla_ejemplo()
-
     def maximizar_ventana(self):
         self.showMaximized()
         self.maximizado = True
@@ -34,23 +32,33 @@ class BoletaApp(QtWidgets.QDialog):
             self.dashboard_window.show()
 
     def exportar_pdf(self):
-        QtWidgets.QMessageBox.information(self, "Exportar", "Función de exportación aún no implementada.")
+        nombre = self.ui.lineEdit_nombre.text().strip()
 
-    def cargar_tabla_ejemplo(self):
-        datos = [
-            ["Español", 9, 8, 10, 9],
-            ["Matemáticas", 10, 10, 9, 9.6],
-            ["Ciencias", 8, 9, 9, 8.6],
-        ]
-        self.ui.tableWidget.setRowCount(len(datos))
-        for fila, datos_fila in enumerate(datos):
-            for columna, valor in enumerate(datos_fila):
+        if not nombre:
+            QtWidgets.QMessageBox.warning(self, "Campo vacío", "Por favor, escribe el nombre del alumno.")
+            return
+
+        datos_boleta = obtener_boleta(nombre)
+
+        if not datos_boleta:
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo obtener la boleta del backend.")
+            return
+
+        self.ui.tableWidget.setRowCount(len(datos_boleta))
+        for fila, fila_datos in enumerate(datos_boleta):
+            for columna, valor in enumerate(fila_datos):
                 item = QtWidgets.QTableWidgetItem(str(valor))
                 self.ui.tableWidget.setItem(fila, columna, item)
 
-        # Mostrar el promedio final (simulado)
-        promedio_general = sum([fila[4] for fila in datos]) / len(datos)
-        self.ui.lcdNumber.display(promedio_general)
+        try:
+            promedios = [float(fila[-1]) for fila in datos_boleta]
+            promedio_general = sum(promedios) / len(promedios)
+            self.ui.lcdNumber.display(promedio_general)
+        except Exception as e:
+            print("Error al calcular promedio:", e)
+            self.ui.lcdNumber.display(0)
+
+        QtWidgets.QMessageBox.information(self, "Boleta generada", "Boleta cargada correctamente.")
 
 if __name__ == "__main__":
     import sys
