@@ -32,14 +32,12 @@ class RegistroMateriaApp(QtWidgets.QDialog):
 
     def registrar_materia(self):
         nombre_materia = self.ui.lineEdit_Titulo_Materia.text()
-        clave_materia = self.ui.comboBox_materia_2.currentText()
         profesor = self.ui.comboBox_Profesor.currentText()
         tipo_material = self.ui.comboBox_Material.currentText()
         area = self.ui.comboBox_area.currentText()
 
         print("📚 Registro de Materia:")
         print(f"  Nombre: {nombre_materia}")
-        print(f"  Clave: {clave_materia}")
         print(f"  Profesor: {profesor}")
         print(f"  Tipo de material: {tipo_material}")
         print(f"  Área académica: {area}")

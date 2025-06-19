@@ -309,31 +309,11 @@ border-radius:20px;
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>340</x>
-     <y>260</y>
-     <width>171</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{
-color: rgb(218, 218, 218); font-size:15pt;
-color: #8B4513;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>Clave de la materia</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
      <x>650</x>
-     <y>260</y>
+     <y>250</y>
      <width>171</width>
      <height>16</height>
     </rect>
@@ -474,24 +454,33 @@ color: rgb(202, 202, 202); </string>
     <string/>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_materia_2">
+  <widget class="QComboBox" name="comboBox_Profesor">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>310</y>
+     <x>640</x>
+     <y>300</y>
      <width>181</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_Profesor">
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>310</y>
-     <width>181</width>
-     <height>22</height>
+     <x>330</x>
+     <y>270</y>
+     <width>191</width>
+     <height>171</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Icons/buho.svg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

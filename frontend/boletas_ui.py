@@ -130,7 +130,7 @@ class Ui_Dialog(object):
         self.lineEdit_nombre.setText("")
         self.lineEdit_nombre.setObjectName("lineEdit_nombre")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(0, 260, 81, 16))
+        self.label_5.setGeometry(QtCore.QRect(0, 280, 81, 16))
         self.label_5.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -138,7 +138,7 @@ class Ui_Dialog(object):
 "")
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(parent=Dialog)
-        self.label_6.setGeometry(QtCore.QRect(20, 300, 61, 16))
+        self.label_6.setGeometry(QtCore.QRect(30, 340, 61, 16))
         self.label_6.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -146,25 +146,14 @@ class Ui_Dialog(object):
 "")
         self.label_6.setObjectName("label_6")
         self.lineEdit_nombre_4 = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_nombre_4.setGeometry(QtCore.QRect(130, 250, 241, 31))
+        self.lineEdit_nombre_4.setGeometry(QtCore.QRect(130, 270, 241, 31))
         self.lineEdit_nombre_4.setStyleSheet("font-size:14pt; \n"
 "color: rgb(202, 202, 202); ")
         self.lineEdit_nombre_4.setText("")
         self.lineEdit_nombre_4.setObjectName("lineEdit_nombre_4")
         self.comboBox = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox.setGeometry(QtCore.QRect(130, 300, 231, 22))
+        self.comboBox.setGeometry(QtCore.QRect(130, 340, 231, 22))
         self.comboBox.setObjectName("comboBox")
-        self.comboBox_2 = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_2.setGeometry(QtCore.QRect(140, 360, 231, 22))
-        self.comboBox_2.setObjectName("comboBox_2")
-        self.label_7 = QtWidgets.QLabel(parent=Dialog)
-        self.label_7.setGeometry(QtCore.QRect(10, 360, 101, 16))
-        self.label_7.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_7.setObjectName("label_7")
         self.label_8 = QtWidgets.QLabel(parent=Dialog)
         self.label_8.setGeometry(QtCore.QRect(470, 190, 91, 16))
         self.label_8.setStyleSheet("QLabel{\n"
@@ -250,7 +239,6 @@ class Ui_Dialog(object):
         self.label_4.setText(_translate("Dialog", "Nombre"))
         self.label_5.setText(_translate("Dialog", "Apellido"))
         self.label_6.setText(_translate("Dialog", "ID"))
-        self.label_7.setText(_translate("Dialog", "ID Profesor"))
         self.label_8.setText(_translate("Dialog", "Asistencia"))
         self.comboBox_3.setItemText(0, _translate("Dialog", "---Seleccione una opcion"))
         self.comboBox_3.setItemText(1, _translate("Dialog", "Aprovado"))

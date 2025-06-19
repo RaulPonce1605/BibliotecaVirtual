@@ -13,11 +13,11 @@ class BoletaApp(QtWidgets.QDialog):
         self.ui.bt_minimizar.clicked.connect(self.showMinimized)
         self.ui.bt_maximizar.clicked.connect(self.maximizar_ventana)
         self.ui.bt_restaurar.clicked.connect(self.restaurar_ventana)
-        self.ui.pushButton_registrar.clicked.connect(self.exportar_pdf)  # Botón Exportar
+        self.ui.pushButton_registrar.clicked.connect(self.exportar_pdf)
 
         self.maximizado = False
 
-        # Aquí puedes probar cargar la tabla (simulado por ahora)
+        # Carga de datos simulada
         self.cargar_tabla_ejemplo()
 
     def maximizar_ventana(self):
@@ -34,11 +34,9 @@ class BoletaApp(QtWidgets.QDialog):
             self.dashboard_window.show()
 
     def exportar_pdf(self):
-        # Aquí tu compañero de backend podrá implementar la exportación
-        QtWidgets.QMessageBox.information(self, "Exportar", "Funcionalidad aún no implementada.")
+        QtWidgets.QMessageBox.information(self, "Exportar", "Función de exportación aún no implementada.")
 
     def cargar_tabla_ejemplo(self):
-        # Ejemplo para que el backend sepa cómo insertar datos
         datos = [
             ["Español", 9, 8, 10, 9],
             ["Matemáticas", 10, 10, 9, 9.6],
@@ -49,6 +47,10 @@ class BoletaApp(QtWidgets.QDialog):
             for columna, valor in enumerate(datos_fila):
                 item = QtWidgets.QTableWidgetItem(str(valor))
                 self.ui.tableWidget.setItem(fila, columna, item)
+
+        # Mostrar el promedio final (simulado)
+        promedio_general = sum([fila[4] for fila in datos]) / len(datos)
+        self.ui.lcdNumber.display(promedio_general)
 
 if __name__ == "__main__":
     import sys

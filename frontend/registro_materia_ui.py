@@ -123,16 +123,8 @@ class Ui_Dialog(object):
         self.bt_cerrar_2.setIconSize(QtCore.QSize(38, 38))
         self.bt_cerrar_2.setObjectName("bt_cerrar_2")
         self.horizontalLayout.addWidget(self.bt_cerrar_2)
-        self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(340, 260, 171, 16))
-        self.label_4.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_4.setObjectName("label_4")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(650, 260, 171, 16))
+        self.label_5.setGeometry(QtCore.QRect(650, 250, 171, 16))
         self.label_5.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -181,12 +173,15 @@ class Ui_Dialog(object):
 "color: rgb(202, 202, 202); ")
         self.lineEdit_Titulo_Materia.setText("")
         self.lineEdit_Titulo_Materia.setObjectName("lineEdit_Titulo_Materia")
-        self.comboBox_materia_2 = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_materia_2.setGeometry(QtCore.QRect(330, 310, 181, 22))
-        self.comboBox_materia_2.setObjectName("comboBox_materia_2")
         self.comboBox_Profesor = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_Profesor.setGeometry(QtCore.QRect(640, 310, 181, 22))
+        self.comboBox_Profesor.setGeometry(QtCore.QRect(640, 300, 181, 22))
         self.comboBox_Profesor.setObjectName("comboBox_Profesor")
+        self.label_4 = QtWidgets.QLabel(parent=Dialog)
+        self.label_4.setGeometry(QtCore.QRect(330, 270, 191, 171))
+        self.label_4.setText("")
+        self.label_4.setPixmap(QtGui.QPixmap("Icons/buho.svg"))
+        self.label_4.setScaledContents(True)
+        self.label_4.setObjectName("label_4")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -198,7 +193,6 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Nombre De Materia"))
         self.label_2.setText(_translate("Dialog", "Registro De Materias"))
         self.label_9.setText(_translate("Dialog", "Registro de Materia"))
-        self.label_4.setText(_translate("Dialog", "Clave de la materia"))
         self.label_5.setText(_translate("Dialog", "Profesor a Impartir"))
         self.comboBox_Material.setItemText(0, _translate("Dialog", "--- Seleccione una opción"))
         self.comboBox_Material.setItemText(1, _translate("Dialog", "Libros"))

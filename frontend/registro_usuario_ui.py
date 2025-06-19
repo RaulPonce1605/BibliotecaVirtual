@@ -47,7 +47,7 @@ class Ui_Dialog(object):
         self.comboBox_alumno.addItem("")
         self.comboBox_alumno.addItem("")
         self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(380, 250, 141, 16))
+        self.label_4.setGeometry(QtCore.QRect(380, 250, 141, 31))
         self.label_4.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -61,7 +61,7 @@ class Ui_Dialog(object):
         self.lineEdit_nombre.setText("")
         self.lineEdit_nombre.setObjectName("lineEdit_nombre")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(650, 390, 161, 16))
+        self.label_5.setGeometry(QtCore.QRect(650, 390, 161, 21))
         self.label_5.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -75,7 +75,7 @@ class Ui_Dialog(object):
         self.lineEdit_Email.setText("")
         self.lineEdit_Email.setObjectName("lineEdit_Email")
         self.label_6 = QtWidgets.QLabel(parent=Dialog)
-        self.label_6.setGeometry(QtCore.QRect(650, 250, 141, 16))
+        self.label_6.setGeometry(QtCore.QRect(650, 250, 141, 31))
         self.label_6.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -89,7 +89,7 @@ class Ui_Dialog(object):
         self.lineEdit_apellido.setText("")
         self.lineEdit_apellido.setObjectName("lineEdit_apellido")
         self.label_7 = QtWidgets.QLabel(parent=Dialog)
-        self.label_7.setGeometry(QtCore.QRect(50, 390, 161, 16))
+        self.label_7.setGeometry(QtCore.QRect(50, 390, 161, 31))
         self.label_7.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -117,7 +117,7 @@ class Ui_Dialog(object):
         self.lineEdit_Edad.setText("")
         self.lineEdit_Edad.setObjectName("lineEdit_Edad")
         self.pushButton_registrar = QtWidgets.QPushButton(parent=Dialog)
-        self.pushButton_registrar.setGeometry(QtCore.QRect(320, 520, 191, 41))
+        self.pushButton_registrar.setGeometry(QtCore.QRect(320, 630, 191, 41))
         self.pushButton_registrar.setStyleSheet("background-color: rgb(181, 181, 181);\n"
 "font: 700 15pt \"Segoe UI\";\n"
 "color: #8B4513;")
@@ -209,6 +209,20 @@ class Ui_Dialog(object):
 "}\n"
 "")
         self.label_10.setObjectName("label_10")
+        self.label_11 = QtWidgets.QLabel(parent=Dialog)
+        self.label_11.setGeometry(QtCore.QRect(390, 500, 191, 16))
+        self.label_11.setStyleSheet("QLabel{\n"
+"color: rgb(218, 218, 218); font-size:15pt;\n"
+"color: #8B4513;\n"
+"}\n"
+"")
+        self.label_11.setObjectName("label_11")
+        self.lineEdit_materia = QtWidgets.QLineEdit(parent=Dialog)
+        self.lineEdit_materia.setGeometry(QtCore.QRect(310, 550, 241, 31))
+        self.lineEdit_materia.setStyleSheet("font-size:14pt; \n"
+"color: rgb(202, 202, 202); ")
+        self.lineEdit_materia.setText("")
+        self.lineEdit_materia.setObjectName("lineEdit_materia")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -230,3 +244,4 @@ class Ui_Dialog(object):
         self.pushButton_registrar.setText(_translate("Dialog", "Registrar"))
         self.label_9.setText(_translate("Dialog", "Registro de Usuario"))
         self.label_10.setText(_translate("Dialog", "Rellena los siguientes campos"))
+        self.label_11.setText(_translate("Dialog", "Materia"))
