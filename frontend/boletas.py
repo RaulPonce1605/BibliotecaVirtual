@@ -1,6 +1,9 @@
 from PyQt6 import QtCore, QtWidgets
 from boletas_ui import Ui_Dialog
-from servpeticiones import obtener_boleta  # Asegúrate de tener este método
+from servpeticiones import obtener_boleta
+
+import threading
+import time
 
 class BoletaApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -15,6 +18,7 @@ class BoletaApp(QtWidgets.QDialog):
         self.ui.bt_maximizar.clicked.connect(self.maximizar_ventana)
         self.ui.bt_restaurar.clicked.connect(self.restaurar_ventana)
         self.ui.pushButton_registrar.clicked.connect(self.exportar_pdf)
+        self.ui.pushButton_registrar_2.clicked.connect(self.generar_boletas_masivas)  # << FALTABA ESTO
 
         self.maximizado = False
 
@@ -59,6 +63,16 @@ class BoletaApp(QtWidgets.QDialog):
             self.ui.lcdNumber.display(0)
 
         QtWidgets.QMessageBox.information(self, "Boleta generada", "Boleta cargada correctamente.")
+
+    def generar_boletas_masivas(self):
+        thread = threading.Thread(target=self.simular_generacion_boletas)
+        thread.start()
+
+    def simular_generacion_boletas(self):
+        for i in range(1, 11):
+            print(f"🖨️ Generando boleta {i}/10...")
+            time.sleep(0.7)
+        QtWidgets.QMessageBox.information(self, "Finalizado", "¡Se generaron todas las boletas!")
 
 if __name__ == "__main__":
     import sys

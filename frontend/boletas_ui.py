@@ -221,11 +221,17 @@ class Ui_Dialog(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
         self.pushButton_registrar = QtWidgets.QPushButton(parent=Dialog)
-        self.pushButton_registrar.setGeometry(QtCore.QRect(540, 530, 191, 41))
+        self.pushButton_registrar.setGeometry(QtCore.QRect(540, 480, 191, 41))
         self.pushButton_registrar.setStyleSheet("background-color: rgb(181, 181, 181);\n"
 "font: 700 15pt \"Segoe UI\";\n"
 "color: #8B4513;")
         self.pushButton_registrar.setObjectName("pushButton_registrar")
+        self.pushButton_registrar_2 = QtWidgets.QPushButton(parent=Dialog)
+        self.pushButton_registrar_2.setGeometry(QtCore.QRect(540, 570, 191, 41))
+        self.pushButton_registrar_2.setStyleSheet("background-color: rgb(181, 181, 181);\n"
+"font: 700 15pt \"Segoe UI\";\n"
+"color: #8B4513;")
+        self.pushButton_registrar_2.setObjectName("pushButton_registrar_2")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -257,3 +263,4 @@ class Ui_Dialog(object):
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("Dialog", "Promedio"))
         self.pushButton_registrar.setText(_translate("Dialog", "Exportar PDF"))
+        self.pushButton_registrar_2.setText(_translate("Dialog", "Generar PDFS"))

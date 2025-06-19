@@ -577,7 +577,7 @@ color: #8B4513;
    <property name="geometry">
     <rect>
      <x>540</x>
-     <y>530</y>
+     <y>480</y>
      <width>191</width>
      <height>41</height>
     </rect>
@@ -589,6 +589,24 @@ color: #8B4513;</string>
    </property>
    <property name="text">
     <string>Exportar PDF</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_registrar_2">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>570</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(181, 181, 181);
+font: 700 15pt &quot;Segoe UI&quot;;
+color: #8B4513;</string>
+   </property>
+   <property name="text">
+    <string>Generar PDFS</string>
    </property>
   </widget>
  </widget>
