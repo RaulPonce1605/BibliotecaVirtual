@@ -96,11 +96,36 @@ class BoletaApp(QtWidgets.QDialog):
 
     def manejar_cambio_indice(self, index):
         alumno = obtener_calificacion_por_idalumno(index + 1)
-        print(f"Datos del alumno seleccionado: {alumno}")
-        print((float(alumno['cal1']) + float(alumno['cal2']) + float(alumno['cal3'])) / 3)
-        self.ui.lcdNumber.display((float(alumno['cal1']) + float(alumno['cal2']) + float(alumno['cal3'])) / 3)
-        texto = self.ui.comboBox.itemText(index)
-        print(f"Índice {index}, valor: {texto}")
+
+        if not alumno:
+            QtWidgets.QMessageBox.warning(self, "Sin datos", "No se encontró información para este alumno.")
+            return
+
+        try:
+            cal1 = float(alumno.get("cal1", 0))
+            cal2 = float(alumno.get("cal2", 0))
+            cal3 = float(alumno.get("cal3", 0))
+            materia = alumno.get("materia", {}).get("nombre", "Sin materia")
+
+            promedio = round((cal1 + cal2 + cal3) / 3, 2)
+            self.ui.lcdNumber.display(promedio)
+
+            # Llenar la tabla con los datos
+            self.ui.tableWidget.setRowCount(1)
+            self.ui.tableWidget.setColumnCount(5)
+            self.ui.tableWidget.setHorizontalHeaderLabels(["Calificación 1", "Calificación 2", "Calificación 3", "Promedio", "Materia"])
+
+            self.ui.tableWidget.setItem(0, 0, QtWidgets.QTableWidgetItem(str(cal1)))
+            self.ui.tableWidget.setItem(0, 1, QtWidgets.QTableWidgetItem(str(cal2)))
+            self.ui.tableWidget.setItem(0, 2, QtWidgets.QTableWidgetItem(str(cal3)))
+            self.ui.tableWidget.setItem(0, 3, QtWidgets.QTableWidgetItem(str(promedio)))
+            self.ui.tableWidget.setItem(0, 4, QtWidgets.QTableWidgetItem(materia))
+
+            print(f"Alumno: {self.ui.comboBox.itemText(index)} | Materia: {materia} | Promedio: {promedio}")
+
+        except Exception as e:
+            print("❌ Error al procesar datos:", e)
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudieron procesar las calificaciones.")
 
 
 
