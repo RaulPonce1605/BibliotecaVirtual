@@ -217,12 +217,9 @@ class Ui_Dialog(object):
 "}\n"
 "")
         self.label_11.setObjectName("label_11")
-        self.lineEdit_materia = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_materia.setGeometry(QtCore.QRect(310, 550, 241, 31))
-        self.lineEdit_materia.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_materia.setText("")
-        self.lineEdit_materia.setObjectName("lineEdit_materia")
+        self.comboBox_materia = QtWidgets.QComboBox(parent=Dialog)
+        self.comboBox_materia.setGeometry(QtCore.QRect(317, 550, 241, 22))
+        self.comboBox_materia.setObjectName("comboBox_materia")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)

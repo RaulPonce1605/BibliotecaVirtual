@@ -1,3 +1,4 @@
+import json
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect
 from PyQt6.QtCore import QPropertyAnimation, QEasingCurve, Qt
 from PyQt6.QtGui import QColor
@@ -10,6 +11,7 @@ from registro_materias import RegistroMateriaApp
 from registro_prestamosdev import RegistroPrestamosDevApp
 
 import sys
+
 
 class DashboardWindow(QMainWindow):
     def __init__(self):
@@ -25,6 +27,7 @@ class DashboardWindow(QMainWindow):
 
         self.init_ui()
         self.setup_connections()
+
 
     def init_ui(self):
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
@@ -52,8 +55,8 @@ class DashboardWindow(QMainWindow):
         self.ui.bt_uno.clicked.connect(lambda: self.abrir_registro_usuario())
         self.ui.bt_dos.clicked.connect(lambda: self.abrir_registro_materia())
         self.ui.bt_tres.clicked.connect(lambda: self.abrir_calificaciones())
-        self.ui.bt_cuatro.clicked.connect(lambda: self.boletas())  # Página boletas
-        self.ui.pushButton.clicked.connect(lambda: self.abrir_registro_profesor())  # Página boletas
+        self.ui.bt_cuatro.clicked.connect(lambda: self.boletas())
+        self.ui.pushButton.clicked.connect(lambda: self.abrir_registro_profesor())
 
         # Menú lateral animado
         self.ui.bt_menu_uno.clicked.connect(self.toggle_menu)
@@ -64,6 +67,9 @@ class DashboardWindow(QMainWindow):
         self.ui.bt_cerrar_2.clicked.connect(self.close)
         self.ui.bt_maximizar.clicked.connect(self.maximizar_restaurar)
         self.ui.bt_restaurar.clicked.connect(self.maximizar_restaurar)
+
+        # Buscador
+        self.ui.lineEdit.textChanged.connect(self.buscar_contenido)
 
     def sombra_frame(self, widget):
         sombra = QGraphicsDropShadowEffect()
@@ -128,19 +134,59 @@ class DashboardWindow(QMainWindow):
     def actualizar_toolbox_labels(self):
         # Alumnos
         alumnos = obtener_lista_alumnos()
-        texto_alumnos = "\n".join(alumnos) if alumnos else "No hay alumnos registrados"
+        if not alumnos:
+            texto_alumnos = "No hay alumnos registrados"
+            self.ui.label_ventas.setText(texto_alumnos)
+
+
+        texto_alumnos = ""
+        for a in alumnos:
+            print(a)
+            texto_alumnos = texto_alumnos + "\n" + a["nombre"]
         self.ui.label_ventas.setText(texto_alumnos)
 
         # Profesores
         profesores = obtener_lista_profesores()
-        texto_profesores = "\n".join(profesores) if profesores else "No hay profesores registrados"
-        self.ui.label_comentarios.setText(texto_profesores)
+        if not profesores:
+            texto_profesores = "No hay profesores registrados"
+            self.ui.label_comentarios.setText(texto_profesores)
+
+        texto_profesore = ""
+        for p in profesores:
+            print(p)
+            texto_profesore = texto_profesore + "\n" + p["nombre"]
+        self.ui.label_comentarios.setText(texto_profesore)
 
         # Materias
         materias = obtener_lista_materias()
-        texto_materias = "\n".join(materias) if materias else "No hay materias registradas"
-        self.ui.label_libros.setText(texto_materias)
+        if not materias:
+            texto_materias = "No hay materias registradas"
+            self.ui.label_libros.setText(texto_materias)
 
+        texto_materia = ""
+        for e in materias:
+            print(e)
+            texto_materia = texto_materia + "\n" + e["nombre"]
+        self.ui.label_libros.setText(texto_materia)
+
+    def buscar_contenido(self, texto):
+        texto = texto.lower()
+        pagina_actual = self.ui.stackedWidget.currentIndex()
+
+        if pagina_actual == 0:  # Alumnos
+            alumnos = obtener_lista_alumnos()
+            filtrados = [a for a in alumnos if texto in a.lower()]
+            self.ui.label_ventas.setText("\n".join(filtrados) if filtrados else "No hay coincidencias.")
+
+        elif pagina_actual == 1:  # Profesores
+            profesores = obtener_lista_profesores()
+            filtrados = [p for p in profesores if texto in p.lower()]
+            self.ui.label_comentarios.setText("\n".join(filtrados) if filtrados else "No hay coincidencias.")
+
+        elif pagina_actual == 5:  # Materias
+            materias = obtener_lista_materias()
+            filtrados = [m for m in materias if texto in m.lower()]
+            self.ui.label_libros.setText("\n".join(filtrados) if filtrados else "No hay coincidencias.")
 
 
 if __name__ == "__main__":

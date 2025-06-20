@@ -115,7 +115,7 @@ class Ui_Dialog(object):
 "")
         self.label_10.setObjectName("label_10")
         self.label_3 = QtWidgets.QLabel(parent=Dialog)
-        self.label_3.setGeometry(QtCore.QRect(140, 250, 141, 16))
+        self.label_3.setGeometry(QtCore.QRect(200, 250, 141, 16))
         self.label_3.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -137,7 +137,7 @@ class Ui_Dialog(object):
 "color: #8B4513;")
         self.pushButton_registrar_Libros.setObjectName("pushButton_registrar_Libros")
         self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(400, 380, 151, 16))
+        self.label_5.setGeometry(QtCore.QRect(400, 370, 151, 16))
         self.label_5.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:10pt;\n"
 "color: #8B4513;\n"
@@ -145,7 +145,7 @@ class Ui_Dialog(object):
 "")
         self.label_5.setObjectName("label_5")
         self.label_11 = QtWidgets.QLabel(parent=Dialog)
-        self.label_11.setGeometry(QtCore.QRect(590, 380, 141, 16))
+        self.label_11.setGeometry(QtCore.QRect(590, 370, 141, 16))
         self.label_11.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:10pt;\n"
 "color: #8B4513;\n"
@@ -153,40 +153,38 @@ class Ui_Dialog(object):
 "")
         self.label_11.setObjectName("label_11")
         self.dateEdit_Devolucion = QtWidgets.QDateEdit(parent=Dialog)
-        self.dateEdit_Devolucion.setGeometry(QtCore.QRect(600, 420, 110, 31))
+        self.dateEdit_Devolucion.setGeometry(QtCore.QRect(600, 400, 110, 31))
         self.dateEdit_Devolucion.setCalendarPopup(True)
         self.dateEdit_Devolucion.setObjectName("dateEdit_Devolucion")
         self.comboBox_Materias = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_Materias.setGeometry(QtCore.QRect(80, 290, 211, 21))
+        self.comboBox_Materias.setGeometry(QtCore.QRect(130, 290, 211, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.comboBox_Materias.setFont(font)
         self.comboBox_Materias.setObjectName("comboBox_Materias")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
-        self.comboBox_Materias.addItem("")
         self.spinBox_calificacion = QtWidgets.QSpinBox(parent=Dialog)
-        self.spinBox_calificacion.setGeometry(QtCore.QRect(420, 430, 111, 22))
+        self.spinBox_calificacion.setGeometry(QtCore.QRect(420, 400, 111, 22))
         self.spinBox_calificacion.setMaximum(10)
         self.spinBox_calificacion.setObjectName("spinBox_calificacion")
         self.comboBox_idalumno = QtWidgets.QComboBox(parent=Dialog)
         self.comboBox_idalumno.setGeometry(QtCore.QRect(477, 290, 151, 22))
         self.comboBox_idalumno.setObjectName("comboBox_idalumno")
-        self.comboBox_idalumno_2 = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_idalumno_2.setGeometry(QtCore.QRect(90, 430, 201, 22))
-        self.comboBox_idalumno_2.setObjectName("comboBox_idalumno_2")
         self.label_6 = QtWidgets.QLabel(parent=Dialog)
-        self.label_6.setGeometry(QtCore.QRect(100, 380, 171, 21))
+        self.label_6.setGeometry(QtCore.QRect(190, 360, 141, 16))
         self.label_6.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
 "}\n"
 "")
         self.label_6.setObjectName("label_6")
+        self.comboBox_grado = QtWidgets.QComboBox(parent=Dialog)
+        self.comboBox_grado.setGeometry(QtCore.QRect(147, 400, 201, 22))
+        self.comboBox_grado.setObjectName("comboBox_grado")
+        self.comboBox_grado.addItem("")
+        self.comboBox_grado.addItem("")
+        self.comboBox_grado.addItem("")
+        self.comboBox_grado.addItem("")
+        self.comboBox_grado.setItemText(3, "")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -202,11 +200,7 @@ class Ui_Dialog(object):
         self.pushButton_registrar_Libros.setText(_translate("Dialog", "Guardar Calificacion"))
         self.label_5.setText(_translate("Dialog", "Calificacion Del Alumno *"))
         self.label_11.setText(_translate("Dialog", "Fecha De Evaluacion *"))
-        self.comboBox_Materias.setItemText(0, _translate("Dialog", "--- Seleccione una opción"))
-        self.comboBox_Materias.setItemText(1, _translate("Dialog", "Matematicas"))
-        self.comboBox_Materias.setItemText(2, _translate("Dialog", "Geografia"))
-        self.comboBox_Materias.setItemText(3, _translate("Dialog", "Biologia"))
-        self.comboBox_Materias.setItemText(4, _translate("Dialog", "Computacion"))
-        self.comboBox_Materias.setItemText(5, _translate("Dialog", "Actuacion"))
-        self.comboBox_Materias.setItemText(6, _translate("Dialog", "Deporte"))
-        self.label_6.setText(_translate("Dialog", "Grado Impartiendo"))
+        self.label_6.setText(_translate("Dialog", "Grado"))
+        self.comboBox_grado.setItemText(0, _translate("Dialog", "1ER Parcial"))
+        self.comboBox_grado.setItemText(1, _translate("Dialog", "2DO Parcial"))
+        self.comboBox_grado.setItemText(2, _translate("Dialog", "3ER Parcial"))

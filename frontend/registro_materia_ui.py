@@ -167,6 +167,9 @@ class Ui_Dialog(object):
         self.comboBox_area = QtWidgets.QComboBox(parent=Dialog)
         self.comboBox_area.setGeometry(QtCore.QRect(647, 430, 171, 22))
         self.comboBox_area.setObjectName("comboBox_area")
+        self.comboBox_area.addItem("")
+        self.comboBox_area.addItem("")
+        self.comboBox_area.addItem("")
         self.lineEdit_Titulo_Materia = QtWidgets.QLineEdit(parent=Dialog)
         self.lineEdit_Titulo_Materia.setGeometry(QtCore.QRect(20, 300, 241, 31))
         self.lineEdit_Titulo_Materia.setStyleSheet("font-size:14pt; \n"
@@ -202,3 +205,6 @@ class Ui_Dialog(object):
         self.label_7.setText(_translate("Dialog", "Area Academica"))
         self.label_8.setText(_translate("Dialog", "Tipo de material"))
         self.pushButton_registrar_Libros.setText(_translate("Dialog", "Registrar"))
+        self.comboBox_area.setItemText(0, _translate("Dialog", "CienciasBasicas"))
+        self.comboBox_area.setItemText(1, _translate("Dialog", "Literatura"))
+        self.comboBox_area.setItemText(2, _translate("Dialog", "Arte"))

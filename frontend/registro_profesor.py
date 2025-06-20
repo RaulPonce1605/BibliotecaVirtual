@@ -1,6 +1,7 @@
-from PyQt6 import QtCore, QtWidgets
+import json
+from PyQt6 import QtCore, QtGui, QtWidgets
 from registro_profesor_ui import Ui_Dialog
-form servpeticiones import registrar_profesor  # Asegúrate de que este módulo exista y funcione correctamente
+from servpeticiones import registrar_profesor, obtener_lista_materias  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -9,6 +10,8 @@ class RegistroApp(QtWidgets.QDialog):
         self.ui.setupUi(self)
         self.dashboard_window = dashboard_window
 
+        self.maximizado = False
+
         # Conexiones
         self.ui.pushButton_registrar.clicked.connect(self.registrar_profesor)
         self.ui.bt_cerrar_2.clicked.connect(self.cerrar_y_volver)
@@ -16,7 +19,22 @@ class RegistroApp(QtWidgets.QDialog):
         self.ui.bt_maximizar.clicked.connect(self.maximizar_ventana)
         self.ui.bt_restaurar.clicked.connect(self.restaurar_ventana)
 
-        self.maximizado = False
+        # Validaciones en tiempo real
+        solo_letras = QtGui.QRegularExpressionValidator(
+            QtCore.QRegularExpression("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"))
+        solo_numeros = QtGui.QRegularExpressionValidator(
+            QtCore.QRegularExpression("^[0-9]+$"))
+
+        self.ui.lineEdit_nombre.setValidator(solo_letras)
+        self.ui.lineEdit_apellido.setValidator(solo_letras)
+        self.ui.lineEdit_segundo_Apellido.setValidator(solo_letras)
+        self.ui.lineEdit_Telefono.setValidator(solo_numeros)
+    
+        datos = obtener_lista_materias()
+        for materia in datos:
+            self.ui.comboBox_materia.addItem(materia['nombre'])
+
+    
 
     def maximizar_ventana(self):
         self.showMaximized()
@@ -32,7 +50,8 @@ class RegistroApp(QtWidgets.QDialog):
             self.dashboard_window.show()
 
     def registrar_profesor(self):
-        materia = self.ui.comboBox_materia.currentText()
+       
+        indexmat = self.ui.comboBox_materia.currentIndex()
         nombre = self.ui.lineEdit_nombre.text()
         primer_apellido = self.ui.lineEdit_apellido.text()
         segundo_apellido = self.ui.lineEdit_segundo_Apellido.text()
@@ -40,13 +59,12 @@ class RegistroApp(QtWidgets.QDialog):
         email = self.ui.lineEdit_Email.text()
 
         datos = {
-            "materia": materia,
+            "materia": {"idMateria": indexmat + 1},
             "nombre": nombre,
-            "primer_apellido": primer_apellido,
-            "segundo_apellido": segundo_apellido,
+            "apellido": primer_apellido + " " + segundo_apellido,
             "telefono": telefono,
             "email": email
-        }
+        } 
 
         respuesta = registrar_profesor(datos)
 
@@ -55,7 +73,7 @@ class RegistroApp(QtWidgets.QDialog):
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar el profesor.")
 
-
+        # Animación visual del botón
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar, b"geometry")
         anim.setDuration(200)
         orig_geom = self.ui.pushButton_registrar.geometry()

@@ -436,6 +436,21 @@ color: #8B4513;</string>
      <height>22</height>
     </rect>
    </property>
+   <item>
+    <property name="text">
+     <string>CienciasBasicas</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Literatura</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Arte</string>
+    </property>
+   </item>
   </widget>
   <widget class="QLineEdit" name="lineEdit_Titulo_Materia">
    <property name="geometry">

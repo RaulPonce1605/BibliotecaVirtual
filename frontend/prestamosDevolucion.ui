@@ -289,7 +289,7 @@ color: #9d9d9d;
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>200</x>
      <y>250</y>
      <width>141</width>
      <height>16</height>
@@ -348,7 +348,7 @@ color: #8B4513;</string>
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>380</y>
+     <y>370</y>
      <width>151</width>
      <height>16</height>
     </rect>
@@ -368,7 +368,7 @@ color: #8B4513;
    <property name="geometry">
     <rect>
      <x>590</x>
-     <y>380</y>
+     <y>370</y>
      <width>141</width>
      <height>16</height>
     </rect>
@@ -388,7 +388,7 @@ color: #8B4513;
    <property name="geometry">
     <rect>
      <x>600</x>
-     <y>420</y>
+     <y>400</y>
      <width>110</width>
      <height>31</height>
     </rect>
@@ -400,7 +400,7 @@ color: #8B4513;
   <widget class="QComboBox" name="comboBox_Materias">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>130</x>
      <y>290</y>
      <width>211</width>
      <height>21</height>
@@ -411,47 +411,12 @@ color: #8B4513;
      <pointsize>12</pointsize>
     </font>
    </property>
-   <item>
-    <property name="text">
-     <string>--- Seleccione una opción</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Matematicas</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Geografia</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Biologia</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Computacion</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Actuacion</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>Deporte</string>
-    </property>
-   </item>
   </widget>
   <widget class="QSpinBox" name="spinBox_calificacion">
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>430</y>
+     <y>400</y>
      <width>111</width>
      <height>22</height>
     </rect>
@@ -470,23 +435,13 @@ color: #8B4513;
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_idalumno_2">
-   <property name="geometry">
-    <rect>
-     <x>90</x>
-     <y>430</y>
-     <width>201</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>380</y>
-     <width>171</width>
-     <height>21</height>
+     <x>190</x>
+     <y>360</y>
+     <width>141</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -497,8 +452,38 @@ color: #8B4513;
 </string>
    </property>
    <property name="text">
-    <string>Grado Impartiendo</string>
+    <string>Grado</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_grado">
+   <property name="geometry">
+    <rect>
+     <x>147</x>
+     <y>400</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>1ER Parcial</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2DO Parcial</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3ER Parcial</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string/>
+    </property>
+   </item>
   </widget>
  </widget>
  <resources/>

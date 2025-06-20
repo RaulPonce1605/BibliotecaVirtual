@@ -1,5 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_usuario_ui import Ui_Dialog
+from servpeticiones import registrar_alumno, obtener_lista_materias  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -17,6 +18,10 @@ class RegistroApp(QtWidgets.QDialog):
 
         self.maximizado = False
 
+        datos = obtener_lista_materias()
+        for materia in datos:
+            self.ui.comboBox_materia.addItem(materia['nombre'])
+
     def maximizar_ventana(self):
         self.showMaximized()
         self.maximizado = True
@@ -31,22 +36,24 @@ class RegistroApp(QtWidgets.QDialog):
             self.dashboard_window.show()
 
     def registrar_usuario(self):
-        tipo_alumno = self.ui.comboBox_alumno.currentText()
+    
+        indextipo = self.ui.comboBox_alumno.currentIndex()
         nombre = self.ui.lineEdit_nombre.text()
         primer_apellido = self.ui.lineEdit_apellido.text()
         segundo_apellido = self.ui.lineEdit_segundo_Apellido.text()
         edad = self.ui.lineEdit_Edad.text()
         email = self.ui.lineEdit_Email.text()
-        materia = self.ui.lineEdit_materia.text()
+        indexmat = self.ui.comboBox_materia.currentIndex()
+
+        print(indexmat)
 
         datos = {
-            "tipo_alumno": tipo_alumno,
+            "tipo":  indextipo,
             "nombre": nombre,
-            "primer_apellido": primer_apellido,
-            "segundo_apellido": segundo_apellido,
-            "edad": edad,
-            "email_tutor": email,
-            "materia": materia
+            "apellido": primer_apellido + " " + segundo_apellido,
+            "edad": int(edad),
+            "email": email,
+            "materia": {"idMateria": indexmat + 1 }
         }
 
         respuesta = registrar_alumno(datos)

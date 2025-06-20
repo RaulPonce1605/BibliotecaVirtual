@@ -115,47 +115,19 @@ class Ui_Dialog(object):
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
-        self.label_4 = QtWidgets.QLabel(parent=Dialog)
-        self.label_4.setGeometry(QtCore.QRect(10, 210, 141, 16))
-        self.label_4.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_4.setObjectName("label_4")
-        self.lineEdit_nombre = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_nombre.setGeometry(QtCore.QRect(130, 200, 241, 31))
-        self.lineEdit_nombre.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_nombre.setText("")
-        self.lineEdit_nombre.setObjectName("lineEdit_nombre")
-        self.label_5 = QtWidgets.QLabel(parent=Dialog)
-        self.label_5.setGeometry(QtCore.QRect(0, 280, 81, 16))
-        self.label_5.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(parent=Dialog)
-        self.label_6.setGeometry(QtCore.QRect(30, 340, 61, 16))
+        self.label_6.setGeometry(QtCore.QRect(20, 210, 81, 16))
         self.label_6.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
 "}\n"
 "")
         self.label_6.setObjectName("label_6")
-        self.lineEdit_nombre_4 = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_nombre_4.setGeometry(QtCore.QRect(130, 270, 241, 31))
-        self.lineEdit_nombre_4.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_nombre_4.setText("")
-        self.lineEdit_nombre_4.setObjectName("lineEdit_nombre_4")
         self.comboBox = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox.setGeometry(QtCore.QRect(130, 340, 231, 22))
+        self.comboBox.setGeometry(QtCore.QRect(120, 210, 231, 22))
         self.comboBox.setObjectName("comboBox")
         self.label_8 = QtWidgets.QLabel(parent=Dialog)
-        self.label_8.setGeometry(QtCore.QRect(470, 190, 91, 16))
+        self.label_8.setGeometry(QtCore.QRect(40, 320, 91, 16))
         self.label_8.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -163,13 +135,13 @@ class Ui_Dialog(object):
 "")
         self.label_8.setObjectName("label_8")
         self.comboBox_3 = QtWidgets.QComboBox(parent=Dialog)
-        self.comboBox_3.setGeometry(QtCore.QRect(570, 190, 161, 22))
+        self.comboBox_3.setGeometry(QtCore.QRect(140, 320, 161, 22))
         self.comboBox_3.setObjectName("comboBox_3")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.comboBox_3.addItem("")
         self.label_11 = QtWidgets.QLabel(parent=Dialog)
-        self.label_11.setGeometry(QtCore.QRect(430, 240, 181, 16))
+        self.label_11.setGeometry(QtCore.QRect(470, 220, 181, 16))
         self.label_11.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:13pt;\n"
 "color: #8B4513;\n"
@@ -177,25 +149,11 @@ class Ui_Dialog(object):
 "")
         self.label_11.setObjectName("label_11")
         self.dateEdit_Devolucion = QtWidgets.QDateEdit(parent=Dialog)
-        self.dateEdit_Devolucion.setGeometry(QtCore.QRect(630, 230, 110, 31))
+        self.dateEdit_Devolucion.setGeometry(QtCore.QRect(670, 210, 110, 31))
         self.dateEdit_Devolucion.setCalendarPopup(True)
         self.dateEdit_Devolucion.setObjectName("dateEdit_Devolucion")
-        self.label_12 = QtWidgets.QLabel(parent=Dialog)
-        self.label_12.setGeometry(QtCore.QRect(540, 280, 111, 16))
-        self.label_12.setStyleSheet("QLabel{\n"
-"color: rgb(218, 218, 218); font-size:15pt;\n"
-"color: #8B4513;\n"
-"}\n"
-"")
-        self.label_12.setObjectName("label_12")
-        self.lineEdit_nombre_2 = QtWidgets.QLineEdit(parent=Dialog)
-        self.lineEdit_nombre_2.setGeometry(QtCore.QRect(490, 310, 241, 31))
-        self.lineEdit_nombre_2.setStyleSheet("font-size:14pt; \n"
-"color: rgb(202, 202, 202); ")
-        self.lineEdit_nombre_2.setText("")
-        self.lineEdit_nombre_2.setObjectName("lineEdit_nombre_2")
         self.label_13 = QtWidgets.QLabel(parent=Dialog)
-        self.label_13.setGeometry(QtCore.QRect(540, 360, 141, 16))
+        self.label_13.setGeometry(QtCore.QRect(587, 300, 141, 16))
         self.label_13.setStyleSheet("QLabel{\n"
 "color: rgb(218, 218, 218); font-size:15pt;\n"
 "color: #8B4513;\n"
@@ -203,7 +161,7 @@ class Ui_Dialog(object):
 "")
         self.label_13.setObjectName("label_13")
         self.lcdNumber = QtWidgets.QLCDNumber(parent=Dialog)
-        self.lcdNumber.setGeometry(QtCore.QRect(523, 390, 161, 23))
+        self.lcdNumber.setGeometry(QtCore.QRect(570, 330, 161, 23))
         self.lcdNumber.setObjectName("lcdNumber")
         self.tableWidget = QtWidgets.QTableWidget(parent=Dialog)
         self.tableWidget.setGeometry(QtCore.QRect(0, 430, 481, 271))
@@ -221,13 +179,13 @@ class Ui_Dialog(object):
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(4, item)
         self.pushButton_registrar = QtWidgets.QPushButton(parent=Dialog)
-        self.pushButton_registrar.setGeometry(QtCore.QRect(540, 480, 191, 41))
+        self.pushButton_registrar.setGeometry(QtCore.QRect(560, 430, 191, 41))
         self.pushButton_registrar.setStyleSheet("background-color: rgb(181, 181, 181);\n"
 "font: 700 15pt \"Segoe UI\";\n"
 "color: #8B4513;")
         self.pushButton_registrar.setObjectName("pushButton_registrar")
         self.pushButton_registrar_2 = QtWidgets.QPushButton(parent=Dialog)
-        self.pushButton_registrar_2.setGeometry(QtCore.QRect(540, 570, 191, 41))
+        self.pushButton_registrar_2.setGeometry(QtCore.QRect(560, 540, 191, 41))
         self.pushButton_registrar_2.setStyleSheet("background-color: rgb(181, 181, 181);\n"
 "font: 700 15pt \"Segoe UI\";\n"
 "color: #8B4513;")
@@ -242,15 +200,12 @@ class Ui_Dialog(object):
         self.label_10.setText(_translate("Dialog", "Rellena los siguientes campos"))
         self.label_2.setText(_translate("Dialog", "Generacion De Boletas"))
         self.label_9.setText(_translate("Dialog", "Registro de Calificacion"))
-        self.label_4.setText(_translate("Dialog", "Nombre"))
-        self.label_5.setText(_translate("Dialog", "Apellido"))
-        self.label_6.setText(_translate("Dialog", "ID"))
+        self.label_6.setText(_translate("Dialog", "Alumno"))
         self.label_8.setText(_translate("Dialog", "Asistencia"))
         self.comboBox_3.setItemText(0, _translate("Dialog", "---Seleccione una opcion"))
         self.comboBox_3.setItemText(1, _translate("Dialog", "Aprovado"))
         self.comboBox_3.setItemText(2, _translate("Dialog", "No Aprovado"))
         self.label_11.setText(_translate("Dialog", "Fecha De Evaluación"))
-        self.label_12.setText(_translate("Dialog", "% Asistencia"))
         self.label_13.setText(_translate("Dialog", "Promedio Final"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("Dialog", "Asignaturas"))

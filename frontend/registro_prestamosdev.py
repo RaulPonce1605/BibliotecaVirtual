@@ -1,6 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_prestamosdev_ui import Ui_Dialog
-from servpeticiones import registrar_calificacion  # Asegúrate de que este módulo exista y funcione correctamente
+from servpeticiones import registrar_calificacion, obtener_lista_materias, obtener_lista_alumnos, obtener_calificacion_por_idalumno  # Asegúrate de que este módulo exista y funcione correctamente
 
 class RegistroPrestamosDevApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -18,6 +18,16 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
 
         self.maximizado = False
 
+        
+        datos = obtener_lista_materias()
+        for materia in datos:
+            self.ui.comboBox_Materias.addItem(materia['nombre'])
+
+        datosid = obtener_lista_alumnos()
+        for alumno in datosid:
+            self.ui.comboBox_idalumno.addItem(alumno['nombre'] + " " + alumno['apellido'])
+            
+
     def maximizar_ventana(self):
         self.showMaximized()
         self.maximizado = True
@@ -33,18 +43,42 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
 
     def guardar_calificacion(self):
         materia = self.ui.comboBox_Materias.currentText()
-        id_alumno = self.ui.comboBox_idalumno.currentText()
-        grado = self.ui.comboBox_idalumno_2.currentText()
+        indexmat = self.ui.comboBox_Materias.currentIndex()
+        id = self.ui.comboBox_idalumno.currentText()
+        index = self.ui.comboBox_idalumno.currentIndex()
+        indexgrado = self.ui.comboBox_grado.currentIndex()
         calificacion = self.ui.spinBox_calificacion.value()
         fecha_evaluacion = self.ui.dateEdit_Devolucion.date().toString("yyyy-MM-dd")
 
-        datos = {
-            "materia": materia,
-            "id_alumno": id_alumno,
-            "grado": grado,
-            "calificacion": calificacion,
-            "fecha_evaluacion": fecha_evaluacion
-        }
+        ev = obtener_calificacion_por_idalumno(index + 1)
+        datos = {}
+        if indexgrado == 0:
+            datos = {
+                "materia": {"idMateria": indexmat +1},
+                "alumno": {"idAlumno": index + 1},
+                "cal1": calificacion,
+                "cal2": ev["cal2"] if ev else 0,
+                "cal3": ev["cal3"] if ev else 0,
+                "fecha": fecha_evaluacion
+            }
+        elif indexgrado == 1:
+            datos = {
+                "materia": {"idMateria": indexmat + 1},
+                "alumno": {"idAlumno": index +1},
+                "cal1": ev["cal1"] if ev else 0,
+                "cal2": calificacion,
+                "cal3": ev["cal3"] if ev else 0,
+                "fecha": fecha_evaluacion
+            }
+        else:
+            datos = {
+                "materia": {"idMateria": indexmat + 1},
+                "alumno": {"idAlumno": index + 1},
+                "cal1": ev["cal1"] if ev else 0,
+                "cal2": ev["cal2"] if ev else 0,
+                "cal3": calificacion,
+                "fecha": fecha_evaluacion
+            }
 
         respuesta = registrar_calificacion(datos)
 

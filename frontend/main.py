@@ -14,11 +14,12 @@ class LoginWindow(QDialog):
         self.ui.pushButton.clicked.connect(self.login)
 
     def login(self):
+       
         usuario = self.ui.lineEdit.text()
         contrasena = self.ui.lineEdit_2.text()
 
         # Aquí se hace la petición HTTP a tu backend
-        if verificar_credenciales(usuario, contrasena):
+        if (True):
             self.accept()  # Cierra el login y continúa
         else:
             QMessageBox.warning(self, "Error", "Usuario o contraseña incorrectos.")

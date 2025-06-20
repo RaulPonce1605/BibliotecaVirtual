@@ -1,6 +1,7 @@
-from PyQt6 import QtCore, QtWidgets
+from PyQt6 import QtCore, QtGui, QtWidgets
 from registro_materia_ui import Ui_Dialog
-from servpeticiones import registrar_materia  # Asegúrate de que este módulo exista y funcione correctamente
+from servpeticiones import registrar_materia, obtener_lista_profesores  # Asegúrate de que este módulo exista y funcione correctamente
+
 
 class RegistroMateriaApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -9,14 +10,23 @@ class RegistroMateriaApp(QtWidgets.QDialog):
         self.ui.setupUi(self)
         self.dashboard_window = dashboard_window
 
-        # Conexión de botones
+        self.maximizado = False
+
+        # Conexiones de botones
         self.ui.pushButton_registrar_Libros.clicked.connect(self.registrar_materia)
         self.ui.bt_cerrar_2.clicked.connect(self.cerrar_y_volver)
         self.ui.bt_minimizar.clicked.connect(self.showMinimized)
         self.ui.bt_maximizar.clicked.connect(self.maximizar_ventana)
         self.ui.bt_restaurar.clicked.connect(self.restaurar_ventana)
 
-        self.maximizado = False
+        datos = obtener_lista_profesores()
+        for profesor in datos:
+            self.ui.comboBox_Profesor.addItem(profesor['nombre'])
+
+        # Validaciones
+        solo_letras = QtGui.QRegularExpressionValidator(
+            QtCore.QRegularExpression("^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$"))
+        self.ui.lineEdit_Titulo_Materia.setValidator(solo_letras)
 
     def maximizar_ventana(self):
         self.showMaximized()
@@ -33,15 +43,21 @@ class RegistroMateriaApp(QtWidgets.QDialog):
 
     def registrar_materia(self):
         nombre_materia = self.ui.lineEdit_Titulo_Materia.text()
-        profesor = self.ui.comboBox_Profesor.currentText()
+        indexprofesor = self.ui.comboBox_Profesor.currentIndex()
         tipo_material = self.ui.comboBox_Material.currentText()
         area = self.ui.comboBox_area.currentText()
+        
+
+        # Validación de campo obligatorio
+        if not nombre_materia.strip():
+            QtWidgets.QMessageBox.warning(self, "Campo obligatorio", "Por favor escribe el nombre de la materia.")
+            return
 
         datos = {
-            "nombre_materia": nombre_materia,
-            "profesor": profesor,
-            "tipo_material": tipo_material,
-            "area_academica": area
+            "nombre": nombre_materia,
+            "profesor": {"idProfesor": indexprofesor + 1},  # Ajuste para que el índice comience desde 1
+            "material": tipo_material,
+            "area": area
         }
 
         respuesta = registrar_materia(datos)
@@ -50,8 +66,8 @@ class RegistroMateriaApp(QtWidgets.QDialog):
             QtWidgets.QMessageBox.information(self, "Éxito", "Materia registrada correctamente.")
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar la materia.")
-            
-        # Animación visual del botón registrar
+
+        # Animación visual del botón
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar_Libros, b"geometry")
         anim.setDuration(200)
         orig_geom = self.ui.pushButton_registrar_Libros.geometry()
@@ -63,6 +79,7 @@ class RegistroMateriaApp(QtWidgets.QDialog):
         anim.setEndValue(orig_geom)
         anim.start()
         self.anim_registrar = anim
+
 
 if __name__ == "__main__":
     import sys
