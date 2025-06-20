@@ -1,6 +1,6 @@
 from PyQt6 import QtCore, QtWidgets
 from registro_prestamosdev_ui import Ui_Dialog
-from servpeticiones import registrar_calificacion, obtener_lista_materias, obtener_lista_alumnos, obtener_calificacion_por_idalumno  # Asegúrate de que este módulo exista y funcione correctamente
+from servpeticiones import registrar_calificacion, obtener_lista_materias, obtener_lista_alumnos, obtener_calificacion_por_idalumno
 
 class RegistroPrestamosDevApp(QtWidgets.QDialog):
     def __init__(self, dashboard_window=None):
@@ -18,15 +18,17 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
 
         self.maximizado = False
 
-        
+        # Llenar comboBox con materias
         datos = obtener_lista_materias()
         for materia in datos:
             self.ui.comboBox_Materias.addItem(materia['nombre'])
 
+        # Llenar comboBox con alumnos y conectar evento
         datosid = obtener_lista_alumnos()
         for alumno in datosid:
             self.ui.comboBox_idalumno.addItem(alumno['nombre'] + " " + alumno['apellido'])
-            
+
+        self.ui.comboBox_idalumno.currentIndexChanged.connect(self.seleccionar_materia_automatica)
 
     def maximizar_ventana(self):
         self.showMaximized()
@@ -52,9 +54,10 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
 
         ev = obtener_calificacion_por_idalumno(index + 1)
         datos = {}
+
         if indexgrado == 0:
             datos = {
-                "materia": {"idMateria": indexmat +1},
+                "materia": {"idMateria": indexmat + 1},
                 "alumno": {"idAlumno": index + 1},
                 "cal1": calificacion,
                 "cal2": ev["cal2"] if ev else 0,
@@ -64,7 +67,7 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
         elif indexgrado == 1:
             datos = {
                 "materia": {"idMateria": indexmat + 1},
-                "alumno": {"idAlumno": index +1},
+                "alumno": {"idAlumno": index + 1},
                 "cal1": ev["cal1"] if ev else 0,
                 "cal2": calificacion,
                 "cal3": ev["cal3"] if ev else 0,
@@ -82,11 +85,11 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
 
         respuesta = registrar_calificacion(datos)
 
-        if respuesta and respuesta.get("status") == "ok":
+        if respuesta:
             QtWidgets.QMessageBox.information(self, "Éxito", "Calificación registrada correctamente.")
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar la calificación.")
-            
+
         # Animación visual del botón
         anim = QtCore.QPropertyAnimation(self.ui.pushButton_registrar_Libros, b"geometry")
         anim.setDuration(200)
@@ -99,6 +102,14 @@ class RegistroPrestamosDevApp(QtWidgets.QDialog):
         anim.setEndValue(orig_geom)
         anim.start()
         self.anim_registrar = anim
+
+    def seleccionar_materia_automatica(self, index):
+        alumno = obtener_calificacion_por_idalumno(index + 1)
+        if alumno and "materia" in alumno:
+            nombre_materia = alumno["materia"]["nombre"]
+            idx = self.ui.comboBox_Materias.findText(nombre_materia)
+            if idx != -1:
+                self.ui.comboBox_Materias.setCurrentIndex(idx)
 
 if __name__ == "__main__":
     import sys

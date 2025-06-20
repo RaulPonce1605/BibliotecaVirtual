@@ -2,9 +2,12 @@ from operator import index
 from PyQt6 import QtCore, QtGui, QtWidgets
 from boletas_ui import Ui_Dialog
 from servpeticiones import obtener_boleta, obtener_lista_alumnos, obtener_calificacion_por_idalumno
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 import threading
 import time
+import os 
 
 
 class BoletaApp(QtWidgets.QDialog):
@@ -23,6 +26,8 @@ class BoletaApp(QtWidgets.QDialog):
         self.ui.bt_restaurar.clicked.connect(self.restaurar_ventana)
         self.ui.pushButton_registrar.clicked.connect(self.exportar_pdf)
         self.ui.pushButton_registrar_2.clicked.connect(self.generar_boletas_masivas)
+
+        self.ui.comboBox.currentIndexChanged.connect(self.manejar_cambio_indice)
 
         datos = obtener_lista_alumnos()
 
@@ -56,43 +61,45 @@ class BoletaApp(QtWidgets.QDialog):
             self.dashboard_window.show()
 
     def exportar_pdf(self):
-        nombre = self.ui.lineEdit_nombre.text().strip()
-
-        if not nombre:
-            QtWidgets.QMessageBox.warning(self, "Campo vacío", "Por favor, escribe el nombre del alumno.")
-            return
-
-        datos_boleta = obtener_boleta(nombre)
-
-        if not datos_boleta:
-            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo obtener la boleta del backend.")
-            return
-
-        self.ui.tableWidget.setRowCount(len(datos_boleta))
-        for fila, fila_datos in enumerate(datos_boleta):
-            for columna, valor in enumerate(fila_datos):
-                item = QtWidgets.QTableWidgetItem(str(valor))
-                self.ui.tableWidget.setItem(fila, columna, item)
-
         try:
-            promedios = [float(fila[-1]) for fila in datos_boleta]
-            promedio_general = sum(promedios) / len(promedios)
-            self.ui.lcdNumber.display(promedio_general)
+            index = self.ui.comboBox.currentIndex()
+            alumno_nombre = self.ui.comboBox.itemText(index)
+            materia = self.ui.tableWidget.item(0, 4).text()
+            cal1 = self.ui.tableWidget.item(0, 0).text()
+            cal2 = self.ui.tableWidget.item(0, 1).text()
+            cal3 = self.ui.tableWidget.item(0, 2).text()
+            promedio = self.ui.tableWidget.item(0, 3).text()
+
+            nombre_archivo = f"boleta_{alumno_nombre.replace(' ', '_')}.pdf"
+            c = canvas.Canvas(nombre_archivo, pagesize=letter)
+            width, height = letter
+
+            c.setFont("Helvetica-Bold", 14)
+            c.drawString(50, 750, "📘 Boleta de Calificaciones")
+
+            c.setFont("Helvetica", 12)
+            c.drawString(50, 710, f"Alumno: {alumno_nombre}")
+            c.drawString(50, 690, f"Materia: {materia}")
+            c.drawString(50, 670, f"Calificaciones: {cal1}, {cal2}, {cal3}")
+            c.drawString(50, 650, f"Promedio: {promedio}")
+
+            c.save()
+
+            QtWidgets.QMessageBox.information(self, "Boleta generada", f"PDF guardado como: {nombre_archivo}")
         except Exception as e:
-            print("Error al calcular promedio:", e)
-            self.ui.lcdNumber.display(0)
-
-        QtWidgets.QMessageBox.information(self, "Boleta generada", "Boleta cargada correctamente.")
-
-    def generar_boletas_masivas(self):
-        thread = threading.Thread(target=self.simular_generacion_boletas)
-        thread.start()
+            print("❌ Error al generar PDF:", e)
+            QtWidgets.QMessageBox.critical(self, "Error", "No se pudo generar el archivo PDF.")
 
     def simular_generacion_boletas(self):
         for i in range(1, 11):
             print(f"🖨️ Generando boleta {i}/10...")
             time.sleep(0.7)
         QtWidgets.QMessageBox.information(self, "Finalizado", "¡Se generaron todas las boletas!")
+
+    def generar_boletas_masivas(self):
+        thread = threading.Thread(target=self.simular_generacion_boletas)
+        thread.start()
+
 
     def manejar_cambio_indice(self, index):
         alumno = obtener_calificacion_por_idalumno(index + 1)

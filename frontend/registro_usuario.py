@@ -58,7 +58,7 @@ class RegistroApp(QtWidgets.QDialog):
 
         respuesta = registrar_alumno(datos)
 
-        if respuesta and respuesta.get("status") == "ok":
+        if respuesta:
             QtWidgets.QMessageBox.information(self, "Éxito", "Alumno registrado correctamente.")
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar el alumno.")

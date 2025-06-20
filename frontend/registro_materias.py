@@ -62,7 +62,7 @@ class RegistroMateriaApp(QtWidgets.QDialog):
 
         respuesta = registrar_materia(datos)
 
-        if respuesta and respuesta.get("status") == "ok":
+        if respuesta:
             QtWidgets.QMessageBox.information(self, "Éxito", "Materia registrada correctamente.")
         else:
             QtWidgets.QMessageBox.critical(self, "Error", "No se pudo registrar la materia.")
