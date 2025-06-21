@@ -584,8 +584,8 @@ QToolBox::tab:selected {
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>346</width>
-                     <height>352</height>
+                     <width>98</width>
+                     <height>34</height>
                     </rect>
                    </property>
                    <attribute name="icon">
@@ -610,8 +610,8 @@ QToolBox::tab:selected {
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>346</width>
-                     <height>352</height>
+                     <width>98</width>
+                     <height>34</height>
                     </rect>
                    </property>
                    <attribute name="icon">
@@ -650,6 +650,9 @@ QToolBox::tab:selected {
                    <layout class="QVBoxLayout" name="verticalLayout_13">
                     <item>
                      <widget class="QLabel" name="label_comentarios">
+                      <property name="styleSheet">
+                       <string notr="true">font: 24pt &quot;Segoe UI&quot;;</string>
+                      </property>
                       <property name="text">
                        <string/>
                       </property>
